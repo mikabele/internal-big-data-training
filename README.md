@@ -1,5 +1,5 @@
-# Internal Big Data Training repository
-
+# FundStatistics
+ 
 ## Tasks
 1. Task1 - Linux and Bash : there you can install docker containers with preinstalled environment for further tasks.
 2. Task2 - Hadoop Cluster : 3-nodes cluster with configured services Hive and Spark
