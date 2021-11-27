@@ -1,0 +1,1624 @@
+﻿{
+  "paragraphs": [
+    {
+      "text": "%sh\n\nhdfs dfs -rm -r -skipTrash  /tmp/data\nhdfs dfs -rm -r -skipTrash  /tmp/databases\n\nhdfs dfs -mkdir /tmp/data\nhdfs dfs -mkdir /tmp/databases\n\n# hdfs dfs -rm -r -skipTrash  /tmp/fund\n# hdfs dfs -rm -r -skipTrash  /tmp/stg_fund\n# hdfs dfs -rm -r -skipTrash  /tmp/audit\n# hdfs dfs -rm -r -skipTrash  /tmp/landing_fund\n# hdfs dfs -rm -r -skipTrash /tmp/tmp_file\n# hdfs dfs -rm -r -skipTrash /tmp/test\n\n# hdfs dfs -mkdir /tmp/fund\n# hdfs dfs -mkdir /tmp/stg_fund\n# hdfs dfs -mkdir /tmp/audit\n# hdfs dfs -mkdir /tmp/landing_fund\n\n# hdfs dfs -mkdir /tmp/audit/landing_audit_table\n# hdfs dfs -mkdir /tmp/audit/stg_audit_table\n# hdfs dfs -mkdir /tmp/audit/fund_audit_table\n# hdfs dfs -mkdir /tmp/fund/monthly_table\n# hdfs dfs -mkdir /tmp/stg_fund/stg_fund_table\n# hdfs dfs -mkdir /tmp/landing_fund/landing_fund_table\n\n# hdfs dfs -touchz /tmp/audit/landing_audit_table/part\n# hdfs dfs -touchz /tmp/audit/stg_audit_table/part\n# hdfs dfs -touchz /tmp/audit/fund_audit_table/part\n# hdfs dfs -touchz /tmp/fund/monthly_table/part\n# hdfs dfs -touchz /tmp/stg_fund/stg_fund_table/part\n# hdfs dfs -touchz /tmp/landing_fund/landing_fund_table/part",
+      "user": "anonymous",
+      "dateUpdated": "2021-07-12T07:24:29+0000",
+      "config": {
+        "colWidth": 12,
+        "fontSize": 9,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "sh",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": false
+        },
+        "editorMode": "ace/mode/sh"
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "ERROR",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "<console>:9: \u001b[31merror: \u001b[0m';' expected but '#' found.\n       # hdfs dfs -rm -r -skipTrash  /tmp/fund\n       ^\n"
+          }
+        ]
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1625672806560_1592017571",
+      "id": "paragraph_1625672806560_1592017571",
+      "dateCreated": "2021-07-07T15:46:46+0000",
+      "dateStarted": "2021-07-12T07:24:15+0000",
+      "dateFinished": "2021-07-12T07:24:15+0000",
+      "status": "ERROR",
+      "focus": true,
+      "$$hashKey": "object:126961"
+    },
+    {
+      "text": "%spark\n\nval full=false\nval market = \"XAUUSD\"\nvar openClose = false",
+      "user": "anonymous",
+      "dateUpdated": "2021-07-12T06:23:01+0000",
+      "config": {
+        "colWidth": 12,
+        "fontSize": 9,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "scala",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "editorMode": "ace/mode/scala"
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "\u001b[1m\u001b[34mfull\u001b[0m: \u001b[1m\u001b[32mBoolean\u001b[0m = true\n\u001b[1m\u001b[34mmarket\u001b[0m: \u001b[1m\u001b[32mString\u001b[0m = XAUUSD\n\u001b[1m\u001b[34mopenClose\u001b[0m: \u001b[1m\u001b[32mBoolean\u001b[0m = false\n"
+          }
+        ]
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1625672924941_36044152",
+      "id": "paragraph_1625672924941_36044152",
+      "dateCreated": "2021-07-07T15:48:44+0000",
+      "dateStarted": "2021-07-12T06:09:06+0000",
+      "dateFinished": "2021-07-12T06:09:06+0000",
+      "status": "FINISHED",
+      "$$hashKey": "object:126962"
+    },
+    {
+      "text": "%spark\n\nspark.sql(\"DROP DATABASE IF EXISTS landing_fund_db CASCADE\")\n\nspark.sql(\"\"\"CREATE DATABASE landing_fund_db\n             LOCATION '/tmp/databases'\"\"\")\n             \nspark.sql(\"DROP DATABASE IF EXISTS stg_fund_db CASCADE\")\n\nspark.sql(\"\"\"CREATE DATABASE stg_fund_db\n             LOCATION '/tmp/databases'\"\"\")\n             \nspark.sql(\"DROP DATABASE IF EXISTS fund_db CASCADE\")\n\nspark.sql(\"\"\"CREATE DATABASE fund_db\n             LOCATION '/tmp/databases'\"\"\")\n\nspark.sql(\"DROP DATABASE IF EXISTS audit_db CASCADE\")\n\nspark.sql(\"\"\"CREATE DATABASE audit_db\n             LOCATION '/tmp/databases'\"\"\")",
+      "user": "anonymous",
+      "dateUpdated": "2021-07-07T17:07:47+0000",
+      "config": {
+        "colWidth": 12,
+        "fontSize": 9,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "scala",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "editorMode": "ace/mode/scala"
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "\u001b[1m\u001b[34mres81\u001b[0m: \u001b[1m\u001b[32morg.apache.spark.sql.DataFrame\u001b[0m = []\n"
+          }
+        ]
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1625673968171_1956263089",
+      "id": "paragraph_1625673968171_1956263089",
+      "dateCreated": "2021-07-07T16:06:08+0000",
+      "dateStarted": "2021-07-07T17:07:47+0000",
+      "dateFinished": "2021-07-07T17:07:52+0000",
+      "status": "FINISHED",
+      "$$hashKey": "object:126963"
+    },
+    {
+      "text": "%spark\n\nspark.sql(\"DROP TABLE IF EXISTS fund_db.monthly_table\")\n\nspark.sql(\"\"\"CREATE TABLE fund_db.monthly_table(\n\t        market                 VARCHAR(20),\n            `year`                 VARCHAR(5),\n            january                DECIMAL(7, 5),\n            february               DECIMAL(7, 5),\n            march                  DECIMAL(7, 5),\n            april                  DECIMAL(7, 5),\n            may                    DECIMAL(7, 5),\n            june                   DECIMAL(7, 5),\n            july                   DECIMAL(7, 5),\n            august                 DECIMAL(7, 5),\n            september              DECIMAL(7, 5),\n            october                DECIMAL(7, 5),\n            november               DECIMAL(7, 5),\n            december               DECIMAL(7, 5),\n            total                  DECIMAL(7, 5),\n            type_of_previous_value BOOLEAN,\n            update_time            TIMESTAMP)\"\"\")",
+      "user": "anonymous",
+      "dateUpdated": "2021-07-11T13:44:16+0000",
+      "config": {
+        "colWidth": 12,
+        "fontSize": 9,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "scala",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "editorMode": "ace/mode/scala"
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "\u001b[1m\u001b[34mres107\u001b[0m: \u001b[1m\u001b[32morg.apache.spark.sql.DataFrame\u001b[0m = []\n"
+          }
+        ]
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1625677456373_1717168507",
+      "id": "paragraph_1625677456373_1717168507",
+      "dateCreated": "2021-07-07T17:04:16+0000",
+      "dateStarted": "2021-07-11T13:44:16+0000",
+      "dateFinished": "2021-07-11T13:44:17+0000",
+      "status": "FINISHED",
+      "$$hashKey": "object:126964"
+    },
+    {
+      "text": "%spark\n\n\nspark.sql(\"DROP TABLE IF EXISTS audit_db.fund_audit_table\")\n\nspark.sql(\"\"\"CREATE TABLE audit_db.fund_audit_table(\n            start_date TIMESTAMP,\n            end_date   TIMESTAMP,\n            task       VARCHAR(256))\"\"\")",
+      "user": "anonymous",
+      "dateUpdated": "2021-07-10T00:31:56+0000",
+      "config": {
+        "colWidth": 12,
+        "fontSize": 9,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "scala",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "editorMode": "ace/mode/scala"
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "\u001b[1m\u001b[34mres94\u001b[0m: \u001b[1m\u001b[32morg.apache.spark.sql.DataFrame\u001b[0m = []\n"
+          }
+        ]
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1625686438690_1287592181",
+      "id": "paragraph_1625686438690_1287592181",
+      "dateCreated": "2021-07-07T19:33:58+0000",
+      "dateStarted": "2021-07-10T00:31:56+0000",
+      "dateFinished": "2021-07-10T00:31:57+0000",
+      "status": "FINISHED",
+      "$$hashKey": "object:126965"
+    },
+    {
+      "text": "%spark\n\nspark.sql(\"DROP TABLE IF EXISTS audit_db.landing_audit_table\")\n\nspark.sql(\"\"\"CREATE TABLE audit_db.landing_audit_table(\n            filename               VARCHAR(256),\n            `checksum`             VARCHAR(64),\n            start_load_date        TIMESTAMP,\n            market                 VARCHAR(20),\n            task                   VARCHAR(256),\n            end_load_date          TIMESTAMP,\n            count_of_inserted_rows INT)\"\"\")",
+      "user": "anonymous",
+      "dateUpdated": "2021-07-09T07:16:01+0000",
+      "config": {
+        "colWidth": 12,
+        "fontSize": 9,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "scala",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "editorMode": "ace/mode/scala"
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "\u001b[1m\u001b[34mres38\u001b[0m: \u001b[1m\u001b[32morg.apache.spark.sql.DataFrame\u001b[0m = []\n"
+          }
+        ]
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1625686663138_596470157",
+      "id": "paragraph_1625686663138_596470157",
+      "dateCreated": "2021-07-07T19:37:43+0000",
+      "dateStarted": "2021-07-09T07:16:01+0000",
+      "dateFinished": "2021-07-09T07:16:02+0000",
+      "status": "FINISHED",
+      "$$hashKey": "object:126966"
+    },
+    {
+      "text": "%spark\n\nspark.sql(\"DROP TABLE IF EXISTS landing_fund_db.landing_fund_table\")\n\nspark.sql(\"\"\"CREATE TABLE landing_fund_db.landing_fund_table(\n            `time`    VARCHAR(19),\n            `open`    VARCHAR(8),\n            `high`    VARCHAR(8),\n            `low`     VARCHAR(8),\n            `close`   VARCHAR(8),\n            volume    VARCHAR(7),\n            load_date TIMESTAMP,\n            market    VARCHAR(20))\"\"\")",
+      "user": "anonymous",
+      "dateUpdated": "2021-07-09T07:16:00+0000",
+      "config": {
+        "colWidth": 12,
+        "fontSize": 9,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "scala",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "editorMode": "ace/mode/scala"
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "\u001b[1m\u001b[34mres37\u001b[0m: \u001b[1m\u001b[32morg.apache.spark.sql.DataFrame\u001b[0m = []\n"
+          }
+        ]
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1625686872399_1309385605",
+      "id": "paragraph_1625686872399_1309385605",
+      "dateCreated": "2021-07-07T19:41:12+0000",
+      "dateStarted": "2021-07-09T07:16:00+0000",
+      "dateFinished": "2021-07-09T07:16:00+0000",
+      "status": "FINISHED",
+      "$$hashKey": "object:126967"
+    },
+    {
+      "text": "%spark\n\nspark.sql(\"DROP TABLE IF EXISTS audit_db.stg_audit_table\")\n\nspark.sql(\"\"\"CREATE TABLE audit_db.stg_audit_table(\n            start_load_date TIMESTAMP,\n            end_load_date   TIMESTAMP,\n            task            VARCHAR(256),\n            count_of_inserted_rows INT)\"\"\")",
+      "user": "anonymous",
+      "dateUpdated": "2021-07-09T11:32:44+0000",
+      "config": {
+        "colWidth": 12,
+        "fontSize": 9,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "scala",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "editorMode": "ace/mode/scala"
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "\u001b[1m\u001b[34mres54\u001b[0m: \u001b[1m\u001b[32morg.apache.spark.sql.DataFrame\u001b[0m = []\n"
+          }
+        ]
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1625687064977_1175852845",
+      "id": "paragraph_1625687064977_1175852845",
+      "dateCreated": "2021-07-07T19:44:24+0000",
+      "dateStarted": "2021-07-09T11:32:44+0000",
+      "dateFinished": "2021-07-09T11:32:45+0000",
+      "status": "FINISHED",
+      "$$hashKey": "object:126968"
+    },
+    {
+      "text": "%spark\n\nspark.sql(\"DROP TABLE IF EXISTS stg_fund_db.stg_fund_table\")\n\nspark.sql(\"\"\"CREATE TABLE stg_fund_db.stg_fund_table(\n            `time`    TIMESTAMP,\n            `open`    DECIMAL(7, 3),\n            `close`   DECIMAL(7, 3),\n            market    VARCHAR(20),\n            load_date TIMESTAMP)\"\"\")",
+      "user": "anonymous",
+      "dateUpdated": "2021-07-09T09:38:35+0000",
+      "config": {
+        "colWidth": 12,
+        "fontSize": 9,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "scala",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "editorMode": "ace/mode/scala"
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "\u001b[1m\u001b[34mres47\u001b[0m: \u001b[1m\u001b[32morg.apache.spark.sql.DataFrame\u001b[0m = []\n"
+          }
+        ]
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1625687242839_1890730425",
+      "id": "paragraph_1625687242839_1890730425",
+      "dateCreated": "2021-07-07T19:47:22+0000",
+      "dateStarted": "2021-07-09T09:38:36+0000",
+      "dateFinished": "2021-07-09T09:38:36+0000",
+      "status": "FINISHED",
+      "$$hashKey": "object:126969"
+    },
+    {
+      "text": "%spark\n\nimport java.time.LocalDateTime\nimport java.time.format.DateTimeFormatter\nimport java.io.File\nimport org.apache.hadoop.conf.Configuration\nimport org.apache.hadoop.fs.{FileSystem, Path}\nimport java.security.{MessageDigest, DigestInputStream}\nimport java.nio.file.{Files, Paths}\nimport org.apache.spark.SparkContext._\nimport org.apache.spark.SparkContext\nimport org.apache.spark.sql.functions._\nimport org.apache.spark.sql.sources.DataSourceRegister",
+      "user": "anonymous",
+      "dateUpdated": "2021-07-09T09:17:38+0000",
+      "config": {
+        "colWidth": 12,
+        "fontSize": 9,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "scala",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "editorMode": "ace/mode/scala"
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "import java.time.LocalDateTime\nimport java.time.format.DateTimeFormatter\nimport java.io.File\nimport org.apache.hadoop.conf.Configuration\nimport org.apache.hadoop.fs.{FileSystem, Path}\nimport java.security.{MessageDigest, DigestInputStream}\nimport java.nio.file.{Files, Paths}\nimport org.apache.spark.SparkContext._\nimport org.apache.spark.SparkContext\nimport org.apache.spark.sql.functions._\nimport org.apache.spark.sql.sources.DataSourceRegister\n"
+          }
+        ]
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1625687405334_1250207223",
+      "id": "paragraph_1625687405334_1250207223",
+      "dateCreated": "2021-07-07T19:50:05+0000",
+      "dateStarted": "2021-07-09T09:17:38+0000",
+      "dateFinished": "2021-07-09T09:17:39+0000",
+      "status": "FINISHED",
+      "$$hashKey": "object:126970"
+    },
+    {
+      "text": "%spark\n\ndef checkSumSha256(path: Path): String = {\n    val hdfs = FileSystem.get(new Configuration())\n\n    val buffer = new Array[Byte](8192)\n    val sha256 = MessageDigest.getInstance(\"SHA-256\")\n\n    val dis = new DigestInputStream(hdfs.open(path), sha256)\n    try {\n      while (dis.read(buffer) != -1) {}\n    }\n    finally {\n      dis.close()\n    }\n\n    sha256.digest.map(\"%02x\".format(_)).mkString\n  }",
+      "user": "anonymous",
+      "dateUpdated": "2021-07-09T07:02:52+0000",
+      "config": {
+        "colWidth": 12,
+        "fontSize": 9,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "scala",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "editorMode": "ace/mode/scala"
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "\u001b[1m\u001b[34mcheckSumSha256\u001b[0m: \u001b[1m\u001b[32m(path: org.apache.hadoop.fs.Path)String\u001b[0m\n"
+          }
+        ]
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1625687494819_644589637",
+      "id": "paragraph_1625687494819_644589637",
+      "dateCreated": "2021-07-07T19:51:34+0000",
+      "dateStarted": "2021-07-09T07:02:52+0000",
+      "dateFinished": "2021-07-09T07:02:53+0000",
+      "status": "FINISHED",
+      "$$hashKey": "object:126971"
+    },
+    {
+      "text": "%spark\n\nval fs = FileSystem.get(new Configuration())\nval files = fs.listStatus(new Path(\"/tmp/data\"))\nvar startTimestamp: String = \"\"\nvar endTimestamp : String =\"\"\nvar auditString : String = \"\"\nvar count: Long = -1\nval full=false\n\nif(full) {\n          spark.sql(\"TRUNCATE TABLE landing_fund_db.landing_fund_table\")\n      }\n\nfor (file <- files) {\n    if (fs.isFile(file.getPath)){\n    \n    try {\n        val path = file.getPath.toString\n      startTimestamp = LocalDateTime.now.format(DateTimeFormatter.ofPattern(\"yyyy-MM-dd HH:mm:ss\"))\n      val checkSum = checkSumSha256(file.getPath)\n      val checkLog = spark.sql(s\"SELECT 1 FROM audit_db.landing_audit_table WHERE `checksum` = '$checkSum'\").collect()\n      val checkEndTimestamp = spark.sql(s\"SELECT end_load_date FROM audit_db.landing_audit_table WHERE `checksum` = '$checkSum' ORDER BY start_load_date DESC\")\n      \n\n      if (full || checkLog.isEmpty || (!checkLog.isEmpty && checkEndTimestamp == null)) {\n        auditString=s\"INSERT INTO TABLE audit_db.landing_audit_table(filename,`checksum`, start_load_date, market,task,end_load_date,count_of_inserted_row) SELECT '$path', '$checkSum', '$startTimestamp', '$market', 'load data from files', null, null\"\n\n        spark.sql(\"DROP TABLE IF EXISTS landing_fund_db.temp_fund_table\")\n        spark.sql(s\"\"\"CREATE TABLE landing_fund_db.temp_fund_table(\n            `time`    VARCHAR(19),\n            `open`    VARCHAR(8),\n            `high`    VARCHAR(8),\n            `low`     VARCHAR(8),\n            `close`   VARCHAR(8),\n            volume    VARCHAR(7))\n            USING CSV\n            LOCATION '$path'\n            OPTIONS(HEADER=true,delimiter=';')\"\"\")\n        \n        val count = spark.sql(\"SELECT COUNT(*) FROM landing_fund_db.temp_fund_table\").collect()(0)(0)\n        \n        spark.sql(s\"\"\"INSERT INTO TABLE landing_fund_db.landing_fund_table\n                    SELECT `time`,`open`,high,low,`close`,volume,'$startTimestamp','$market'\n                    FROM landing_fund_db.temp_fund_table\"\"\")\n        //\n        endTimestamp = LocalDateTime.now.format(DateTimeFormatter.ofPattern(\"yyyy-MM-dd HH:mm:ss\"))\n        auditString = s\"\"\"INSERT INTO TABLE audit_db.landing_audit_table\n                        SELECT '$path', '$checkSum', '$startTimestamp', '$market', 'load data from files', '$endTimestamp', $count\"\"\"\n        //endAudit(sc, file.getPath.toString, checkSum, startTimestamp, market, count.toString)\n      }\n    }\n    \n    catch { case e => {\n        throw e\n    }\n    }\n    finally {\n        if (auditString != \"\") {\n            spark.sql(auditString)\n        }\n    }\n    }\n}",
+      "user": "anonymous",
+      "dateUpdated": "2021-07-12T08:33:05+0000",
+      "config": {
+        "colWidth": 12,
+        "fontSize": 9,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "scala",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "editorMode": "ace/mode/scala"
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "<console>:122: \u001b[33mwarning: \u001b[0mThis catches all Throwables. If this is really intended, use `case e : Throwable` to clear this warning.\n           catch { case e => {\n                        ^\n\u001b[1m\u001b[34mfs\u001b[0m: \u001b[1m\u001b[32morg.apache.hadoop.fs.FileSystem\u001b[0m = DFS[DFSClient[clientName=DFSClient_NONMAPREDUCE_345588253_17, ugi=zeppelin (auth:SIMPLE)]]\n\u001b[1m\u001b[34mfiles\u001b[0m: \u001b[1m\u001b[32mArray[org.apache.hadoop.fs.FileStatus]\u001b[0m = Array(FileStatus{path=hdfs://cluster-cd71-m/tmp/data/XAUUSD; isDirectory=true; modification_time=1625733368061; access_time=0; owner=mikhail_belevich; group=hadoop; permission=rwxr-xr-x; isSymlink=false}, FileStatus{path=hdfs://cluster-cd71-m/tmp/data/test_dataset.csv; isDirectory=false; length=80877; replication=1; blocksize=134217728; modification_time=1626078223646; access_time=1626078223534; owner=mikhail_belevich; group=hadoop; permission=rw-r--r--; isSymlink=false}, FileStatus{path=hdfs://cluster-cd71-m/tmp/data/test_dataset1.csv; isDirectory=false; length...\n"
+          }
+        ]
+      },
+      "apps": [],
+      "runtimeInfos": {
+        "jobUrl": {
+          "propertyName": "jobUrl",
+          "label": "SPARK JOB",
+          "tooltip": "View in Spark web UI",
+          "group": "spark",
+          "values": [
+            {
+              "jobUrl": "http://cluster-cd71-m.europe-west6-a.c.perfect-trilogy-317510.internal:33221/jobs/job?id=689",
+              "$$hashKey": "object:127597"
+            },
+            {
+              "jobUrl": "http://cluster-cd71-m.europe-west6-a.c.perfect-trilogy-317510.internal:33221/jobs/job?id=690",
+              "$$hashKey": "object:127598"
+            },
+            {
+              "jobUrl": "http://cluster-cd71-m.europe-west6-a.c.perfect-trilogy-317510.internal:33221/jobs/job?id=691",
+              "$$hashKey": "object:127599"
+            },
+            {
+              "jobUrl": "http://cluster-cd71-m.europe-west6-a.c.perfect-trilogy-317510.internal:33221/jobs/job?id=692",
+              "$$hashKey": "object:127600"
+            },
+            {
+              "jobUrl": "http://cluster-cd71-m.europe-west6-a.c.perfect-trilogy-317510.internal:33221/jobs/job?id=693",
+              "$$hashKey": "object:127601"
+            }
+          ],
+          "interpreterSettingId": "spark"
+        }
+      },
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1625687506796_577306273",
+      "id": "paragraph_1625687506796_577306273",
+      "dateCreated": "2021-07-07T19:51:46+0000",
+      "dateStarted": "2021-07-12T08:33:05+0000",
+      "dateFinished": "2021-07-12T08:33:07+0000",
+      "status": "FINISHED",
+      "$$hashKey": "object:126972"
+    },
+    {
+      "text": "%spark\n\nspark.sql(\"SELECT * from landing_fund_db.temp_fund_table\").show()",
+      "user": "anonymous",
+      "dateUpdated": "2021-07-09T07:10:56+0000",
+      "config": {
+        "colWidth": 12,
+        "fontSize": 9,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "scala",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "editorMode": "ace/mode/scala"
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "+-------------------+------+------+------+------+------+\n|               time|  open|  high|   low| close|volume|\n+-------------------+------+------+------+------+------+\n|2012-01-16 00:00:00|1291,4|1291,5|1291,4|1291,4|     0|\n|2012-01-16 00:00:10|1291,4|1291,4|1291,4|1291,4|     0|\n|2012-01-16 00:00:20|1291,6|1291,6|1291,4|1291,4|     0|\n|2012-01-16 00:00:30|1291,5|1291,5|1291,4|1291,4|     0|\n|2012-01-16 00:00:40|1291,1|1291,4|1291,1|1291,1|     0|\n|2012-01-16 00:00:50|1291,4|1291,4|1291,1|1291,1|     0|\n|2012-01-16 00:01:00|1291,1|1291,1|1291,1|1291,1|     0|\n|2012-01-16 00:01:10|1290,9|1290,9|1290,9|1290,9|     0|\n|2012-01-16 00:01:20|1291,1|1291,1|1291,1|1291,1|     0|\n|2012-01-16 00:01:30|1290,9|1290,9|1290,9|1290,9|     0|\n|2012-01-16 00:01:40|1290,9|1290,9|1290,9|1290,9|     0|\n|2012-01-16 00:01:50|1290,6|1290,6|1290,6|1290,6|     0|\n|2012-01-16 00:02:00|1289,6|1289,9|1289,6|1289,9|     0|\n|2012-01-16 00:02:10|  1290|1290,1|1289,9|1290,1|     0|\n|2012-01-16 00:02:20|1290,4|1290,4|1290,1|1290,1|     0|\n|2012-01-17 00:00:00|1296,1|1296,1|1296,1|1296,1|     0|\n|2012-01-17 00:00:10|1296,1|1296,1|1296,1|1296,1|     0|\n|2012-01-17 00:00:20|1296,1|1296,1|1296,1|1296,1|     0|\n|2012-01-17 00:00:30|1296,1|1296,1|1296,1|1296,1|     0|\n|2012-01-17 00:00:40|1296,1|1296,1|1296,1|1296,1|     0|\n+-------------------+------+------+------+------+------+\nonly showing top 20 rows\n\n"
+          }
+        ]
+      },
+      "apps": [],
+      "runtimeInfos": {
+        "jobUrl": {
+          "propertyName": "jobUrl",
+          "label": "SPARK JOB",
+          "tooltip": "View in Spark web UI",
+          "group": "spark",
+          "values": [
+            {
+              "jobUrl": "http://cluster-cd71-m.europe-west6-a.c.perfect-trilogy-317510.internal:33221/jobs/job?id=13",
+              "$$hashKey": "object:127626"
+            }
+          ],
+          "interpreterSettingId": "spark"
+        }
+      },
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1625687733450_249964816",
+      "id": "paragraph_1625687733450_249964816",
+      "dateCreated": "2021-07-07T19:55:33+0000",
+      "dateStarted": "2021-07-09T07:10:56+0000",
+      "dateFinished": "2021-07-09T07:10:58+0000",
+      "status": "FINISHED",
+      "$$hashKey": "object:126973"
+    },
+    {
+      "text": "%spark\n\nspark.sql(\"SELECT * FROM audit_db.landing_audit_table\").show()",
+      "user": "anonymous",
+      "dateUpdated": "2021-07-12T08:33:26+0000",
+      "config": {
+        "colWidth": 12,
+        "fontSize": 9,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "scala",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "editorMode": "ace/mode/scala"
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "+--------------------+--------------------+-------------------+------+--------------------+-------------------+----------------------+\n|            filename|            checksum|    start_load_date|market|                task|      end_load_date|count_of_inserted_rows|\n+--------------------+--------------------+-------------------+------+--------------------+-------------------+----------------------+\n|hdfs://cluster-cd...|2bdc01957555b1650...|2021-07-12 08:33:06|XAUUSD|load data from files|2021-07-12 08:33:07|                   130|\n|hdfs://cluster-cd...|589ce53a5034727b0...|2021-07-12 08:27:07|XAUUSD|load data from files|2021-07-12 08:27:09|                  1445|\n+--------------------+--------------------+-------------------+------+--------------------+-------------------+----------------------+\n\n"
+          }
+        ]
+      },
+      "apps": [],
+      "runtimeInfos": {
+        "jobUrl": {
+          "propertyName": "jobUrl",
+          "label": "SPARK JOB",
+          "tooltip": "View in Spark web UI",
+          "group": "spark",
+          "values": [
+            {
+              "jobUrl": "http://cluster-cd71-m.europe-west6-a.c.perfect-trilogy-317510.internal:33221/jobs/job?id=694",
+              "$$hashKey": "object:127643"
+            },
+            {
+              "jobUrl": "http://cluster-cd71-m.europe-west6-a.c.perfect-trilogy-317510.internal:33221/jobs/job?id=695",
+              "$$hashKey": "object:127644"
+            }
+          ],
+          "interpreterSettingId": "spark"
+        }
+      },
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1625759679248_790774349",
+      "id": "paragraph_1625759679248_790774349",
+      "dateCreated": "2021-07-08T15:54:39+0000",
+      "dateStarted": "2021-07-12T08:33:26+0000",
+      "dateFinished": "2021-07-12T08:33:26+0000",
+      "status": "FINISHED",
+      "$$hashKey": "object:126974"
+    },
+    {
+      "text": "%spark\n\nspark.sql(\"TRUNCATE TABLE audit_db.landing_audit_table\")",
+      "user": "anonymous",
+      "dateUpdated": "2021-07-12T08:26:30+0000",
+      "config": {
+        "colWidth": 12,
+        "fontSize": 9,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "scala",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "editorMode": "ace/mode/scala"
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "\u001b[1m\u001b[34mres248\u001b[0m: \u001b[1m\u001b[32morg.apache.spark.sql.DataFrame\u001b[0m = []\n"
+          }
+        ]
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1626072512508_1216159390",
+      "id": "paragraph_1626072512508_1216159390",
+      "dateCreated": "2021-07-12T06:48:32+0000",
+      "dateStarted": "2021-07-12T08:26:30+0000",
+      "dateFinished": "2021-07-12T08:26:31+0000",
+      "status": "FINISHED",
+      "$$hashKey": "object:126975"
+    },
+    {
+      "text": "%spark\n\n\nspark.sql(\"SELECT * FROM landing_fund_db.landing_fund_table\").count()",
+      "user": "anonymous",
+      "dateUpdated": "2021-07-12T08:33:29+0000",
+      "config": {
+        "colWidth": 12,
+        "fontSize": 9,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "scala",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "editorMode": "ace/mode/scala"
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "\u001b[1m\u001b[34mres263\u001b[0m: \u001b[1m\u001b[32mLong\u001b[0m = 1575\n"
+          }
+        ]
+      },
+      "apps": [],
+      "runtimeInfos": {
+        "jobUrl": {
+          "propertyName": "jobUrl",
+          "label": "SPARK JOB",
+          "tooltip": "View in Spark web UI",
+          "group": "spark",
+          "values": [
+            {
+              "jobUrl": "http://cluster-cd71-m.europe-west6-a.c.perfect-trilogy-317510.internal:33221/jobs/job?id=696",
+              "$$hashKey": "object:127677"
+            }
+          ],
+          "interpreterSettingId": "spark"
+        }
+      },
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1625814748030_1503514793",
+      "id": "paragraph_1625814748030_1503514793",
+      "dateCreated": "2021-07-09T07:12:28+0000",
+      "dateStarted": "2021-07-12T08:33:29+0000",
+      "dateFinished": "2021-07-12T08:33:30+0000",
+      "status": "FINISHED",
+      "$$hashKey": "object:126976"
+    },
+    {
+      "text": "%spark\n\nvar full=false\nvar startTimestamp: String = LocalDateTime.now.format(DateTimeFormatter.ofPattern(\"yyyy-MM-dd HH:mm:ss\"))\nvar count = 0L\n\nvar auditString = \"\"\n\nvar checkEndDate = spark.sql(\"\"\"SELECT 1\n                                FROM audit_db.landing_audit_table\n                                WHERE end_load_date IS NOT NULL\n                                LIMIT 1\"\"\").collect()\nif (!checkEndDate.isEmpty) {\n    try{\n        auditString = s\"\"\"INSERT INTO audit_db.stg_audit_table\n                        SELECT '$startTimestamp',NULL,'load data from source to staging',0\"\"\"\n                        \n        val maxStartDate = spark.sql(\"\"\"SELECT MAX(start_load_date) \n                                        FROM audit_db.stg_audit_table\n                                        WHERE end_load_date IS NOT NULL\"\"\").collect()\nif (full || maxStartDate.isEmpty) {\n    spark.sql(\"TRUNCATE TABLE stg_fund_db.stg_fund_table\")\n    spark.sql(s\"\"\"INSERT INTO TABLE stg_fund_db.stg_fund_table\n                SELECT TIMESTAMP(SUBSTRING(`time`, 1, 19)),\n                    CAST(REPLACE(`open`, ',', '.') AS DECIMAL(7, 3)),\n                    CAST(REPLACE(`close`, ',', '.') AS DECIMAL(7, 3)),\n                    la.market,\n                    '$startTimestamp'\n                FROM landing_fund_db.landing_fund_table as la\n                WHERE load_date IN (SELECT start_load_date\n                                    FROM audit_db.landing_audit_table\n                                    WHERE end_load_date IS NOT NULL)\"\"\")\n}\nelse {\n    // var incrementalLoadString = s\"\"\"MERGE INTO stg_fund_db.stg_fund_table AS stg\n    //             USING (SELECT TIMESTAMP(SUBSTRING(`time`, 1, 19)) AS `year`,\n    //                 CAST(REPLACE(`open`, ',', '.') AS DECIMAL(7, 3)) AS `open`,\n    //                 CAST(REPLACE(`close`, ',', '.') AS DECIMAL(7, 3)) AS `close`,\n    //                 '$startTimestamp' AS load_date,\n    //                 la.market AS market\n    //             FROM landing_fund_db.landing_fund_table AS la\n    //             WHERE load_date IN (SELECT start_load_date\n    //                             FROM landing_fund_db.audit_table\n    //                             WHERE end_load_date IS NOT NULL)\n    //                 \"\"\" \n    // if (!maxStartDate.isEmpty) \n    //     incrementalLoadString+= s\"AND load_date > $maxStartDate(0)(0)\"\n    // incrementalLoadString +=\"\"\"\n    //             ) as new_data\n    //             ON stg.`year` = new_data.`year` AND stg.market=new_data.market\n    //             WHEN MATCHED THEN\n    //                 UPDATE SET stg.load_date='$startTimestamp',\n    //                             stg.`open`=new_data.`open`,\n    //                             stg.`close`=new_data.`close`\n    //             WHEN NOT MATCHED\n    //                 THEN INSERT (`year`,`open`,`close`,market,load_date) \n    //                 VALUES (new_data.`year`,new_data.`open`,new_data.`close`,new_data.market,new_data.load_date)\"\"\"\n    // spark.sql(incrementalLoadString)\n    val parsedMaxStartDate=maxStartDate(0)(0).toString\n    spark.sql(s\"\"\" \n                INSERT INTO TABLE stg_fund_db.stg_fund_table\n                SELECT TIMESTAMP(SUBSTRING(`time`, 1, 19)) AS `year`,\n                     CAST(REPLACE(`open`, ',', '.') AS DECIMAL(7, 3)) AS `open`,\n                     CAST(REPLACE(`close`, ',', '.') AS DECIMAL(7, 3)) AS `close`,\n                     la.market,\n                     '$startTimestamp'\n                 FROM landing_fund_db.landing_fund_table AS la\n                 WHERE la.load_date IN (SELECT start_load_date\n                                    FROM audit_db.landing_audit_table\n                                    WHERE end_load_date IS NOT NULL) AND la.load_date > '$parsedMaxStartDate'\"\"\")\n}\n\ncount = spark.sql(s\"SELECT COUNT(*) FROM stg_fund_db.stg_fund_table WHERE load_date='$startTimestamp'\").collect()(0)(0).asInstanceOf[Long]\n\nvar endTimestamp : String =LocalDateTime.now.format(DateTimeFormatter.ofPattern(\"yyyy-MM-dd HH:mm:ss\"))\nauditString = s\"\"\"INSERT INTO audit_db.stg_audit_table\n                        SELECT '$startTimestamp','$endTimestamp','load data from source to staging',$count\"\"\"\n}\ncatch {\n    case e => {\n        println(e)\n    }\n}\n    finally {\n        spark.sql(auditString)\n    }\n}\n\n",
+      "user": "anonymous",
+      "dateUpdated": "2021-07-12T08:33:34+0000",
+      "config": {
+        "colWidth": 12,
+        "fontSize": 9,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "scala",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "editorMode": "ace/mode/scala"
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "<console>:144: \u001b[33mwarning: \u001b[0mThis catches all Throwables. If this is really intended, use `case e : Throwable` to clear this warning.\n           case e => {\n                ^\n\u001b[1m\u001b[34mfull\u001b[0m: \u001b[1m\u001b[32mBoolean\u001b[0m = false\n\u001b[1m\u001b[34mstartTimestamp\u001b[0m: \u001b[1m\u001b[32mString\u001b[0m = 2021-07-12 08:33:34\n\u001b[1m\u001b[34mcount\u001b[0m: \u001b[1m\u001b[32mLong\u001b[0m = 130\n\u001b[1m\u001b[34mauditString\u001b[0m: \u001b[1m\u001b[32mString\u001b[0m =\nINSERT INTO audit_db.stg_audit_table\n                        SELECT '2021-07-12 08:33:34','2021-07-12 08:33:35','load data from source to staging',130\n\u001b[1m\u001b[34mcheckEndDate\u001b[0m: \u001b[1m\u001b[32mArray[org.apache.spark.sql.Row]\u001b[0m = Array([1])\n"
+          }
+        ]
+      },
+      "apps": [],
+      "runtimeInfos": {
+        "jobUrl": {
+          "propertyName": "jobUrl",
+          "label": "SPARK JOB",
+          "tooltip": "View in Spark web UI",
+          "group": "spark",
+          "values": [
+            {
+              "jobUrl": "http://cluster-cd71-m.europe-west6-a.c.perfect-trilogy-317510.internal:33221/jobs/job?id=697",
+              "$$hashKey": "object:127694"
+            },
+            {
+              "jobUrl": "http://cluster-cd71-m.europe-west6-a.c.perfect-trilogy-317510.internal:33221/jobs/job?id=698",
+              "$$hashKey": "object:127695"
+            },
+            {
+              "jobUrl": "http://cluster-cd71-m.europe-west6-a.c.perfect-trilogy-317510.internal:33221/jobs/job?id=699",
+              "$$hashKey": "object:127696"
+            },
+            {
+              "jobUrl": "http://cluster-cd71-m.europe-west6-a.c.perfect-trilogy-317510.internal:33221/jobs/job?id=700",
+              "$$hashKey": "object:127697"
+            },
+            {
+              "jobUrl": "http://cluster-cd71-m.europe-west6-a.c.perfect-trilogy-317510.internal:33221/jobs/job?id=701",
+              "$$hashKey": "object:127698"
+            },
+            {
+              "jobUrl": "http://cluster-cd71-m.europe-west6-a.c.perfect-trilogy-317510.internal:33221/jobs/job?id=702",
+              "$$hashKey": "object:127699"
+            }
+          ],
+          "interpreterSettingId": "spark"
+        }
+      },
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1625814985508_1398800303",
+      "id": "paragraph_1625814985508_1398800303",
+      "dateCreated": "2021-07-09T07:16:25+0000",
+      "dateStarted": "2021-07-12T08:33:34+0000",
+      "dateFinished": "2021-07-12T08:33:36+0000",
+      "status": "FINISHED",
+      "$$hashKey": "object:126977"
+    },
+    {
+      "text": "%spark\n\nval maxStartDate = spark.sql(\"\"\"SELECT TIMESTAMP('2021-07-12 06:14:11')\"\"\").collect()\n\nspark.sql(s\"\"\" \n                SELECT TIMESTAMP(SUBSTRING(`time`, 1, 19)) AS `year`,\n                     CAST(REPLACE(`open`, ',', '.') AS DECIMAL(7, 3)) AS `open`,\n                     CAST(REPLACE(`close`, ',', '.') AS DECIMAL(7, 3)) AS `close`,\n                     '$startTimestamp' AS load_date,\n                     la.market AS market\n                 FROM landing_fund_db.landing_fund_table AS la\n                 WHERE load_date IN (SELECT start_load_date\n                                    FROM audit_db.landing_audit_table\n                                    WHERE end_load_date IS NOT NULL) AND load_date > '$maxStartDate(0)(0).toString'\"\"\").show()",
+      "user": "anonymous",
+      "dateUpdated": "2021-07-12T06:38:27+0000",
+      "config": {
+        "colWidth": 12,
+        "fontSize": 9,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "scala",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "editorMode": "ace/mode/scala"
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "+----+----+-----+---------+------+\n|year|open|close|load_date|market|\n+----+----+-----+---------+------+\n+----+----+-----+---------+------+\n\n\u001b[1m\u001b[34mmaxStartDate\u001b[0m: \u001b[1m\u001b[32mArray[org.apache.spark.sql.Row]\u001b[0m = Array([2021-07-12 06:14:11.0])\n"
+          }
+        ]
+      },
+      "apps": [],
+      "runtimeInfos": {
+        "jobUrl": {
+          "propertyName": "jobUrl",
+          "label": "SPARK JOB",
+          "tooltip": "View in Spark web UI",
+          "group": "spark",
+          "values": [
+            {
+              "jobUrl": "http://cluster-cd71-m.europe-west6-a.c.perfect-trilogy-317510.internal:33221/jobs/job?id=497",
+              "$$hashKey": "object:127726"
+            },
+            {
+              "jobUrl": "http://cluster-cd71-m.europe-west6-a.c.perfect-trilogy-317510.internal:33221/jobs/job?id=498",
+              "$$hashKey": "object:127727"
+            },
+            {
+              "jobUrl": "http://cluster-cd71-m.europe-west6-a.c.perfect-trilogy-317510.internal:33221/jobs/job?id=499",
+              "$$hashKey": "object:127728"
+            }
+          ],
+          "interpreterSettingId": "spark"
+        }
+      },
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1626071474898_1410345389",
+      "id": "paragraph_1626071474898_1410345389",
+      "dateCreated": "2021-07-12T06:31:14+0000",
+      "dateStarted": "2021-07-12T06:38:27+0000",
+      "dateFinished": "2021-07-12T06:38:28+0000",
+      "status": "FINISHED",
+      "$$hashKey": "object:126978"
+    },
+    {
+      "text": "%spark\n\n\nvar startTimestamp: String = LocalDateTime.now.format(DateTimeFormatter.ofPattern(\"yyyy-MM-dd HH:mm:ss\"))\nspark.sql(s\"\"\" INSERT INTO TABLE stg_fund_db.stg_fund_table\n                SELECT TIMESTAMP(SUBSTRING(`time`, 1, 19)) AS `year`,\n                     CAST(REPLACE(`open`, ',', '.') AS DECIMAL(7, 3)) AS `open`,\n                     CAST(REPLACE(`close`, ',', '.') AS DECIMAL(7, 3)) AS `close`,\n                     '$startTimestamp',\n                     la.market\n                 FROM landing_fund_db.landing_fund_table AS la\"\"\").show()",
+      "user": "anonymous",
+      "dateUpdated": "2021-07-12T07:30:54+0000",
+      "config": {
+        "colWidth": 12,
+        "fontSize": 9,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "scala",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "editorMode": "ace/mode/scala"
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "++\n||\n++\n++\n\n\u001b[1m\u001b[34mstartTimestamp\u001b[0m: \u001b[1m\u001b[32mString\u001b[0m = 2021-07-12 07:30:54\n"
+          }
+        ]
+      },
+      "apps": [],
+      "runtimeInfos": {
+        "jobUrl": {
+          "propertyName": "jobUrl",
+          "label": "SPARK JOB",
+          "tooltip": "View in Spark web UI",
+          "group": "spark",
+          "values": [
+            {
+              "jobUrl": "http://cluster-cd71-m.europe-west6-a.c.perfect-trilogy-317510.internal:33221/jobs/job?id=635",
+              "$$hashKey": "object:127749"
+            }
+          ],
+          "interpreterSettingId": "spark"
+        }
+      },
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1626074939526_283842826",
+      "id": "paragraph_1626074939526_283842826",
+      "dateCreated": "2021-07-12T07:28:59+0000",
+      "dateStarted": "2021-07-12T07:30:54+0000",
+      "dateFinished": "2021-07-12T07:30:55+0000",
+      "status": "FINISHED",
+      "$$hashKey": "object:126979"
+    },
+    {
+      "text": "%spark\nval maxStartDate = spark.sql(\"\"\"SELECT TIMESTAMP('2021-07-12 06:14:11')\"\"\").collect()",
+      "user": "anonymous",
+      "dateUpdated": "2021-07-12T06:33:51+0000",
+      "config": {
+        "colWidth": 12,
+        "fontSize": 9,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "scala",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "editorMode": "ace/mode/scala"
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "\u001b[1m\u001b[34mmaxStartDate\u001b[0m: \u001b[1m\u001b[32mArray[org.apache.spark.sql.Row]\u001b[0m = Array([2021-07-12 06:14:11.0])\n"
+          }
+        ]
+      },
+      "apps": [],
+      "runtimeInfos": {
+        "jobUrl": {
+          "propertyName": "jobUrl",
+          "label": "SPARK JOB",
+          "tooltip": "View in Spark web UI",
+          "group": "spark",
+          "values": [
+            {
+              "jobUrl": "http://cluster-cd71-m.europe-west6-a.c.perfect-trilogy-317510.internal:33221/jobs/job?id=483",
+              "$$hashKey": "object:127766"
+            }
+          ],
+          "interpreterSettingId": "spark"
+        }
+      },
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1626035821145_911854515",
+      "id": "paragraph_1626035821145_911854515",
+      "dateCreated": "2021-07-11T20:37:01+0000",
+      "dateStarted": "2021-07-12T06:33:51+0000",
+      "dateFinished": "2021-07-12T06:33:51+0000",
+      "status": "FINISHED",
+      "$$hashKey": "object:126980"
+    },
+    {
+      "text": "%spark\n\nspark.sql(\"SELECT * FROM stg_fund_db.stg_fund_table WHERE load_date > TIMESTAMP('2021-07-12 08:28:00')\").show()",
+      "user": "anonymous",
+      "dateUpdated": "2021-07-12T08:34:24+0000",
+      "config": {
+        "colWidth": 12,
+        "fontSize": 9,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "scala",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "editorMode": "ace/mode/scala"
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "+-------------------+--------+--------+------+-------------------+\n|               time|    open|   close|market|          load_date|\n+-------------------+--------+--------+------+-------------------+\n|2012-02-22 09:47:40|1754.304|1754.280|XAUUSD|2021-07-12 08:33:34|\n|2012-02-22 09:47:50|1754.329|1754.272|XAUUSD|2021-07-12 08:33:34|\n|2012-02-22 09:48:00|1754.281|1754.307|XAUUSD|2021-07-12 08:33:34|\n|2012-02-22 09:48:10|1754.289|1754.155|XAUUSD|2021-07-12 08:33:34|\n|2012-02-22 09:48:20|1754.195|1754.264|XAUUSD|2021-07-12 08:33:34|\n|2012-02-22 09:48:30|1754.243|1754.535|XAUUSD|2021-07-12 08:33:34|\n|2012-02-22 09:48:40|1754.533|1754.516|XAUUSD|2021-07-12 08:33:34|\n|2012-02-22 09:48:50|1754.494|1754.534|XAUUSD|2021-07-12 08:33:34|\n|2012-02-22 09:49:00|1754.448|1754.464|XAUUSD|2021-07-12 08:33:34|\n|2012-02-22 09:49:10|1754.445|1754.500|XAUUSD|2021-07-12 08:33:34|\n|2012-02-22 09:49:20|1754.529|1754.804|XAUUSD|2021-07-12 08:33:34|\n|2012-02-22 09:49:30|1754.832|1755.115|XAUUSD|2021-07-12 08:33:34|\n|2012-02-22 09:49:40|1755.135|1755.221|XAUUSD|2021-07-12 08:33:34|\n|2012-02-22 09:49:50|1755.222|1755.411|XAUUSD|2021-07-12 08:33:34|\n|2012-02-22 09:50:00|1755.383|1755.403|XAUUSD|2021-07-12 08:33:34|\n|2012-02-22 09:50:10|1755.440|1755.702|XAUUSD|2021-07-12 08:33:34|\n|2012-02-22 09:50:20|1755.632|1755.242|XAUUSD|2021-07-12 08:33:34|\n|2012-02-22 09:50:30|1755.242|1755.302|XAUUSD|2021-07-12 08:33:34|\n|2012-02-22 09:50:40|1755.352|1755.412|XAUUSD|2021-07-12 08:33:34|\n|2012-02-22 09:50:50|1755.452|1755.402|XAUUSD|2021-07-12 08:33:34|\n+-------------------+--------+--------+------+-------------------+\nonly showing top 20 rows\n\n"
+          }
+        ]
+      },
+      "apps": [],
+      "runtimeInfos": {
+        "jobUrl": {
+          "propertyName": "jobUrl",
+          "label": "SPARK JOB",
+          "tooltip": "View in Spark web UI",
+          "group": "spark",
+          "values": [
+            {
+              "jobUrl": "http://cluster-cd71-m.europe-west6-a.c.perfect-trilogy-317510.internal:33221/jobs/job?id=708",
+              "$$hashKey": "object:127783"
+            },
+            {
+              "jobUrl": "http://cluster-cd71-m.europe-west6-a.c.perfect-trilogy-317510.internal:33221/jobs/job?id=709",
+              "$$hashKey": "object:127784"
+            }
+          ],
+          "interpreterSettingId": "spark"
+        }
+      },
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1625823533642_2013023422",
+      "id": "paragraph_1625823533642_2013023422",
+      "dateCreated": "2021-07-09T09:38:53+0000",
+      "dateStarted": "2021-07-12T08:34:24+0000",
+      "dateFinished": "2021-07-12T08:34:25+0000",
+      "status": "FINISHED",
+      "$$hashKey": "object:126981"
+    },
+    {
+      "text": "%spark\n\n\nspark.sql(\"SELECT * FROM audit_db.stg_audit_table\").show()",
+      "user": "anonymous",
+      "dateUpdated": "2021-07-12T08:33:44+0000",
+      "config": {
+        "colWidth": 12,
+        "fontSize": 9,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "scala",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "editorMode": "ace/mode/scala"
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "+-------------------+-------------------+--------------------+----------------------+\n|    start_load_date|      end_load_date|                task|count_of_inserted_rows|\n+-------------------+-------------------+--------------------+----------------------+\n|2021-07-12 08:27:34|2021-07-12 08:27:36|load data from so...|                  1445|\n|2021-07-11 20:40:25|               null|load data from so...|                     0|\n|2021-07-11 20:40:57|2021-07-11 20:40:58|load data from so...|                     0|\n|2021-07-12 06:43:09|2021-07-12 06:43:11|load data from so...|                  1445|\n|2021-07-12 06:09:51|2021-07-12 06:09:53|load data from so...|                  2890|\n|2021-07-12 08:33:34|2021-07-12 08:33:35|load data from so...|                   130|\n|2021-07-09 12:16:57|               null|load data from so...|                     0|\n|2021-07-12 06:14:11|2021-07-12 06:14:12|load data from so...|                  1445|\n|2021-07-11 20:35:44|               null|load data from so...|                     0|\n|2021-07-09 12:17:20|2021-07-09 12:17:22|load data from so...|                  1445|\n|2021-07-12 06:26:12|2021-07-12 06:26:13|load data from so...|                     0|\n|2021-07-12 06:49:45|2021-07-12 06:49:46|load data from so...|                     0|\n+-------------------+-------------------+--------------------+----------------------+\n\n"
+          }
+        ]
+      },
+      "apps": [],
+      "runtimeInfos": {
+        "jobUrl": {
+          "propertyName": "jobUrl",
+          "label": "SPARK JOB",
+          "tooltip": "View in Spark web UI",
+          "group": "spark",
+          "values": [
+            {
+              "jobUrl": "http://cluster-cd71-m.europe-west6-a.c.perfect-trilogy-317510.internal:33221/jobs/job?id=704",
+              "$$hashKey": "object:127803"
+            },
+            {
+              "jobUrl": "http://cluster-cd71-m.europe-west6-a.c.perfect-trilogy-317510.internal:33221/jobs/job?id=705",
+              "$$hashKey": "object:127804"
+            },
+            {
+              "jobUrl": "http://cluster-cd71-m.europe-west6-a.c.perfect-trilogy-317510.internal:33221/jobs/job?id=706",
+              "$$hashKey": "object:127805"
+            }
+          ],
+          "interpreterSettingId": "spark"
+        }
+      },
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1625830110311_278895161",
+      "id": "paragraph_1625830110311_278895161",
+      "dateCreated": "2021-07-09T11:28:30+0000",
+      "dateStarted": "2021-07-12T08:33:44+0000",
+      "dateFinished": "2021-07-12T08:33:44+0000",
+      "status": "FINISHED",
+      "$$hashKey": "object:126982"
+    },
+    {
+      "text": "%spark\n\nvar startTimestamp: String = LocalDateTime.now.format(DateTimeFormatter.ofPattern(\"yyyy-MM-dd HH:mm:ss\"))\n\nval full=false\n\nvar auditString = \"\"\n\n val maxLoadDate = spark.sql(\"\"\"SELECT MAX(start_date) \n                                    FROM audit_db.fund_audit_table\n                                    WHERE end_date IS NOT NULL\"\"\").collect()\ntry {\n    auditString = s\"\"\"INSERT INTO audit_db.fund_audit_table\n                SELECT '$startTimestamp',NULL,'load data from stg to destination'\"\"\"\nif (full || maxLoadDate.isEmpty){\n    //spark.sql(\"TRUNCATE TABLE fund_db.monthly_table\")\nspark.sql(s\"\"\"WITH end_date_cte AS (\n                SELECT DISTINCT start_load_date\n                FROM audit_db.stg_audit_table\n                WHERE end_load_date IS NOT NULL\n            ),\n            new_data_cte AS\n                 (\n                     SELECT `time`, `open`, `close`,market\n                     FROM stg_fund_db.stg_fund_table\n                     WHERE load_date IN (SELECT * FROM end_date_cte)\n                 ),\n             open_close_cte AS\n                 (\n                     SELECT open_dates.`year`,\n                            `open_dates`.`month`,\n                            open_dates.`time`,\n                            open_dates.`open`,\n                            close_dates.`close`,\n                            open_dates.market\n                     FROM (\n                              SELECT YEAR(`time`) as `year`, MONTH(`time`) as `month`, `time`, `open`, `close`, market\n                              FROM new_data_cte\n                              WHERE `time` IN\n                                    (\n                                        SELECT MIN(`time`)\n                                        FROM new_data_cte\n                                        GROUP BY market,YEAR(`time`), MONTH(`time`)\n                                    )\n                          ) as open_dates\n                              INNER JOIN\n                          (\n                              SELECT YEAR(`time`) as `year`, MONTH(`time`) as `month`, `time`, `open`, `close`, market\n                              FROM new_data_cte\n                              WHERE `time` IN\n                                    (\n                                        SELECT MAX(`time`)\n                                        FROM new_data_cte\n                                        GROUP BY market,YEAR(`time`), MONTH(`time`)\n                                    )\n                          ) as close_dates\n                          ON open_dates.`year` = close_dates.`year` AND open_dates.`month` = close_dates.`month`\n                 ),\n             close_previous_close_cte AS\n                 (\n                     SELECT `time`,\n                            `year`,\n                            `month`,\n                            `open`,\n                            `close`,\n                            COALESCE(LAG(`close`) OVER (PARTITION BY market,`year` ORDER BY `month`), `open`) as prev_close,\n                            market\n                     FROM open_close_cte\n                 ),\n             monthly_percents_cte AS\n                 (\n                     SELECT `year`,\n                            `month`,\n                            (`close` - `open`) / `open` * 100 AS percents,\n                            true AS open_close,\n                            market\n                     FROM close_previous_close_cte\n                     UNION ALL\n                     SELECT `year`,\n                            `month`,\n                            (`close` - `prev_close`) / `prev_close` * 100 AS percents,\n                            false AS open_close,\n                            market\n                     FROM close_previous_close_cte\n                     \n                 ),\n             result_cte AS\n                 (\n                     SELECT `year`,\n                            market,\n                            SUM(IF(`month` = 1, `percents`, NULL))  AS January,\n                            SUM(IF(`month` = 2, `percents`, NULL))  AS February,\n                            SUM(IF(`month` = 3, `percents`, NULL))  AS March,\n                            SUM(IF(`month` = 4, `percents`, NULL))  AS April,\n                            SUM(IF(`month` = 5, `percents`, NULL))  AS May,\n                            SUM(IF(`month` = 6, `percents`, NULL))  AS June,\n                            SUM(IF(`month` = 7, `percents`, NULL))  AS July,\n                            SUM(IF(`month` = 8, `percents`, NULL))  AS August,\n                            SUM(IF(`month` = 9, `percents`, NULL))  AS September,\n                            SUM(IF(`month` = 10, `percents`, NULL)) AS October,\n                            SUM(IF(`month` = 11, `percents`, NULL)) AS November,\n                            SUM(IF(`month` = 12, `percents`, NULL)) AS December,\n                            SUM(`percents`)                         AS Total,\n                            open_close\n                     FROM monthly_percents_cte\n                     GROUP BY market,`year`,open_close\n                 )\n        INSERT OVERWRITE TABLE fund_db.monthly_table\n        SELECT market,\n               CAST(`year` AS CHAR(4)),\n               FIRST_VALUE(January),\n               FIRST_VALUE(February),\n               FIRST_VALUE(March),\n               FIRST_VALUE(April),\n               FIRST_VALUE(May),\n               FIRST_VALUE(June),\n               FIRST_VALUE(July),\n               FIRST_VALUE(August),\n               FIRST_VALUE(September),\n               FIRST_VALUE(October),\n               FIRST_VALUE(November),\n               FIRST_VALUE(December),\n               FIRST_VALUE(Total),\n               open_close,\n               '$startTimestamp'\n        FROM result_cte\n        GROUP BY market,`year`,open_close\n        \"\"\")\n        spark.sql(s\"\"\"INSERT INTO fund_db.monthly_table \n                    SELECT market,\n                    'total',\n                    AVG(january),\n                    AVG(february),\n                    AVG(march),\n                    AVG(april),\n                    AVG(may),\n                    AVG(june),\n                    AVG(july),\n                    AVG(august),\n                    AVG(september),\n                    AVG(october),\n                    AVG(november),\n                    AVG(december),\n                    AVG(total),\n                    type_of_previous_value,\n                    '$startTimestamp'\n                    FROM fund_db.monthly_table\n                    GROUP BY market,type_of_previous_value\"\"\")\n}\nelse\n{\n    // val marketYearPairs = spark.sql(s\"\"\"SELECT DISTINCT market,YEAR(`time`)\n    //                                     FROM stg_fund_db.stg_fund_table\n    //                                     WHERE load_date > '$maxLoadDate(0)(0).asInstanceOf[Long]'\"\"\").collect()\n    // spark.sql(\"\"\"DELETE FROM fund_db.monthly_table\n    //             WHERE true\"\"\")\n    val parsedMaxLoadDate = maxLoadDate(0)(0).toString\nspark.sql(s\"\"\"WITH end_date_cte AS (\n                SELECT DISTINCT start_load_date\n                FROM audit_db.stg_audit_table\n                WHERE end_load_date IS NOT NULL\n            ),\n            market_year_pairs_cte AS \n            (\n                SELECT DISTINCT market,YEAR(`time`) AS `year`\n                FROM stg_fund_db.stg_fund_table\n                WHERE load_date IN (SELECT * FROM end_date_cte) AND load_date > '$parsedMaxLoadDate'\n            ),\n            new_data_cte AS\n                 (\n                     SELECT `time`, `open`, `close`,stg.market\n                     FROM stg_fund_db.stg_fund_table AS stg\n                     INNER JOIN market_year_pairs_cte as myp\n                     ON YEAR(stg.`time`) = myp.`year` AND stg.market = myp.market\n                     WHERE load_date IN (SELECT * FROM end_date_cte)\n                 ),\n             open_close_cte AS\n                 (\n                     SELECT open_dates.`year`,\n                            `open_dates`.`month`,\n                            open_dates.`time`,\n                            open_dates.`open`,\n                            close_dates.`close`,\n                            open_dates.market\n                     FROM (\n                              SELECT YEAR(`time`) as `year`, MONTH(`time`) as `month`, `time`, `open`, `close`, market\n                              FROM new_data_cte\n                              WHERE `time` IN\n                                    (\n                                        SELECT MIN(`time`)\n                                        FROM new_data_cte\n                                        GROUP BY market,YEAR(`time`), MONTH(`time`)\n                                    )\n                          ) as open_dates\n                              INNER JOIN\n                          (\n                              SELECT YEAR(`time`) as `year`, MONTH(`time`) as `month`, `time`, `open`, `close`, market\n                              FROM new_data_cte\n                              WHERE `time` IN\n                                    (\n                                        SELECT MAX(`time`)\n                                        FROM new_data_cte\n                                        GROUP BY market,YEAR(`time`), MONTH(`time`)\n                                    )\n                          ) as close_dates\n                          ON open_dates.`year` = close_dates.`year` AND open_dates.`month` = close_dates.`month`\n                 ),\n             close_previous_close_cte AS\n                 (\n                     SELECT `time`,\n                            `year`,\n                            `month`,\n                            `open`,\n                            `close`,\n                            COALESCE(LAG(`close`) OVER (PARTITION BY market,`year` ORDER BY `month`), `open`) as prev_close,\n                            market\n                     FROM open_close_cte\n                 ),\n             monthly_percents_cte AS\n                 (\n                     SELECT `year`,\n                            `month`,\n                            (`close` - `open`) / `open` * 100 AS percents,\n                            true AS open_close,\n                            market\n                     FROM close_previous_close_cte\n                     UNION ALL\n                     SELECT `year`,\n                            `month`,\n                            (`close` - `prev_close`) / `prev_close` * 100 AS percents,\n                            false AS open_close,\n                            market\n                     FROM close_previous_close_cte\n                     \n                 ),\n             result_cte AS\n                 (\n                     SELECT `year`,\n                            market,\n                            SUM(IF(`month` = 1, `percents`, NULL))  AS January,\n                            SUM(IF(`month` = 2, `percents`, NULL))  AS February,\n                            SUM(IF(`month` = 3, `percents`, NULL))  AS March,\n                            SUM(IF(`month` = 4, `percents`, NULL))  AS April,\n                            SUM(IF(`month` = 5, `percents`, NULL))  AS May,\n                            SUM(IF(`month` = 6, `percents`, NULL))  AS June,\n                            SUM(IF(`month` = 7, `percents`, NULL))  AS July,\n                            SUM(IF(`month` = 8, `percents`, NULL))  AS August,\n                            SUM(IF(`month` = 9, `percents`, NULL))  AS September,\n                            SUM(IF(`month` = 10, `percents`, NULL)) AS October,\n                            SUM(IF(`month` = 11, `percents`, NULL)) AS November,\n                            SUM(IF(`month` = 12, `percents`, NULL)) AS December,\n                            SUM(`percents`)                         AS Total,\n                            open_close\n                     FROM monthly_percents_cte\n                     GROUP BY market,`year`,open_close\n                 )\n        INSERT OVERWRITE TABLE fund_db.monthly_table\n        SELECT market,\n            `year`,\n            january,\n            february,\n            march,\n            april,\n            may,\n            june,\n            july,\n            august,\n            september,\n            october,\n            november,\n            december,\n            total,\n            type_of_previous_value,\n            update_time\n        FROM fund_db.monthly_table AS mt\n        WHERE NOT EXISTS (SELECT 1 FROM market_year_pairs_cte AS myp WHERE (mt.`year` = myp.`year` AND mt.market = myp.market) OR mt.`year` = 'total')\n        UNION ALL\n        SELECT market,\n               CAST(`year` AS CHAR(4)),\n               FIRST_VALUE(January),\n               FIRST_VALUE(February),\n               FIRST_VALUE(March),\n               FIRST_VALUE(April),\n               FIRST_VALUE(May),\n               FIRST_VALUE(June),\n               FIRST_VALUE(July),\n               FIRST_VALUE(August),\n               FIRST_VALUE(September),\n               FIRST_VALUE(October),\n               FIRST_VALUE(November),\n               FIRST_VALUE(December),\n               FIRST_VALUE(Total),\n               open_close,\n               '$startTimestamp'\n        FROM result_cte\n        GROUP BY market,`year`,open_close\n        \"\"\")\n        spark.sql(s\"\"\"INSERT INTO TABLE fund_db.monthly_table\n                    SELECT market,\n                    'total',\n                    AVG(january),\n                    AVG(february),\n                    AVG(march),\n                    AVG(april),\n                    AVG(may),\n                    AVG(june),\n                    AVG(july),\n                    AVG(august),\n                    AVG(september),\n                    AVG(october),\n                    AVG(november),\n                    AVG(december),\n                    AVG(total),\n                    type_of_previous_value,\n                    '$startTimestamp'\n                    FROM fund_db.monthly_table\n                    GROUP BY market,type_of_previous_value\"\"\")\n}\nvar endTimestamp = LocalDateTime.now.format(DateTimeFormatter.ofPattern(\"yyyy-MM-dd HH:mm:ss\"))\nauditString = s\"\"\"INSERT INTO audit_db.fund_audit_table\n                SELECT '$startTimestamp','$endTimestamp','load data from stg to destination'\"\"\"\n}\ncatch {\n    case e => {\n        println(e)\n    }\n}\nfinally {\n    //spark.sql(auditString)\n}",
+      "user": "anonymous",
+      "dateUpdated": "2021-07-12T09:10:41+0000",
+      "config": {
+        "colWidth": 12,
+        "fontSize": 9,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "scala",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "editorMode": "ace/mode/scala"
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "<console>:386: \u001b[33mwarning: \u001b[0mThis catches all Throwables. If this is really intended, use `case e : Throwable` to clear this warning.\n           case e => {\n                ^\n+------+----+-------------+--------------+-----+-----+--------------+----+-------------+---------------+--------------+--------------+--------------+--------------+--------------+----------------------+-------------------+\n|market|year|      january|      february|march|april|           may|june|         july|         august|     september|       october|      november|      december|         total|type_of_previous_value|        update_time|\n+------+----+-------------+--------------+-----+-----+--------------+----+-------------+---------------+--------------+--------------+--------------+--------------+--------------+----------------------+-------------------+\n|XAUUSD|2017|        0E-11|          null| null| null|          null|null|9.54622000000|           null|          null| 3.57453000000|          null| 4.73077000000|17.85151000000|                 false|2021-07-12 08:28:25|\n|XAUUSD|2017|        0E-11|          null| null| null|          null|null|0.03243000000|           null|          null|-0.03247000000|          null|         0E-11|-0.00003000000|                  true|2021-07-12 08:28:25|\n|XAUUSD|2016|        0E-11|          null| null| null| 3.45790000000|null|         null|           null|          null|          null| 5.32602000000| 1.57136000000|10.35527000000|                 false|2021-07-12 08:28:25|\n|XAUUSD|2018|        0E-11|          null| null| null|-0.00736000000|null|         null|           null|-0.00003000000|          null|-0.01097000000|         0E-11|-0.01836000000|                  true|2021-07-12 08:28:25|\n|XAUUSD|2018|        0E-11|          null| null| null| 1.83949000000|null|         null|           null| 6.46679000000|          null|-5.86063000000|-6.76648000000|-4.32083000000|                 false|2021-07-12 08:28:25|\n|XAUUSD|2015|        0E-11|          null| null| null|         0E-11|null|         null|           null|          null|         0E-11|          null|         0E-11|         0E-11|                  true|2021-07-12 08:28:25|\n|XAUUSD|2014|        0E-11|          null| null| null| 0.01475000000|null|         null|           null|-0.00080000000|          null|          null|-0.10921000000|-0.09527000000|                  true|2021-07-12 08:28:25|\n|XAUUSD|2014|        0E-11|          null| null| null| 3.84217000000|null|         null|           null| 3.56965000000|          null|          null| 4.35073000000|11.76255000000|                 false|2021-07-12 08:28:25|\n|XAUUSD|2016|        0E-11|          null| null| null| 0.00621000000|null|         null|           null|          null|          null| 5.78112000000|         0E-11| 5.78733000000|                  true|2021-07-12 08:28:25|\n|XAUUSD|2015|        0E-11|          null| null| null| 2.93570000000|null|         null|           null|          null|-4.95769000000|          null| 1.86583000000|-0.15616000000|                 false|2021-07-12 08:28:25|\n|XAUUSD|2012|1.75778225200|33.53032493700| null| null|          null|null|         null|-19.66590719200|          null| 1.98348514500|          null|-0.79368391800|16.81200122400|                 false|2021-07-12 09:08:26|\n|XAUUSD|2013|        0E-11| 0.02255020000| null| null|         0E-11|null|         null| -0.01772921800|          null|         0E-11|          null| 2.26716181200| 2.27198279400|                  true|2021-07-12 09:08:26|\n|XAUUSD|2013|        0E-11|13.29554023300| null| null| 0.03795494200|null|         null|  1.40385998600|          null|-0.89879431800|          null|10.24533942200|24.08390026500|                 false|2021-07-12 09:08:26|\n|XAUUSD|2012|1.75778225200| 0.02382711300| null| null|          null|null|         null| -0.00780280200|          null|-0.03963370100|          null|-0.03294407900| 1.70122878300|                  true|2021-07-12 09:08:26|\n+------+----+-------------+--------------+-----+-----+--------------+----+-------------+---------------+--------------+--------------+--------------+--------------+--------------+----------------------+-------------------+\n\n\u001b[1m\u001b[34mstartTimestamp\u001b[0m: \u001b[1m\u001b[32mString\u001b[0m = 2021-07-12 09:08:26\n\u001b[1m\u001b[34mfull\u001b[0m: \u001b[1m\u001b[32mBoolean\u001b[0m = false\n\u001b[1m\u001b[34mauditString\u001b[0m: \u001b[1m\u001b[32mString\u001b[0m =\nINSERT INTO audit_db.fund_audit_table\n                SELECT '2021-07-12 09:08:26','2021-07-12 09:08:38','load data from stg to destination'\n\u001b[1m\u001b[34mmaxLoadDate\u001b[0m: \u001b[1m\u001b[32mArray[org.apache.spark.sql.Row]\u001b[0m = Array([2021-07-12 08:28:25.0])\n"
+          }
+        ]
+      },
+      "apps": [],
+      "runtimeInfos": {
+        "jobUrl": {
+          "propertyName": "jobUrl",
+          "label": "SPARK JOB",
+          "tooltip": "View in Spark web UI",
+          "group": "spark",
+          "values": [
+            {
+              "jobUrl": "http://cluster-cd71-m.europe-west6-a.c.perfect-trilogy-317510.internal:33221/jobs/job?id=804",
+              "$$hashKey": "object:130142"
+            },
+            {
+              "jobUrl": "http://cluster-cd71-m.europe-west6-a.c.perfect-trilogy-317510.internal:33221/jobs/job?id=805",
+              "$$hashKey": "object:130143"
+            },
+            {
+              "jobUrl": "http://cluster-cd71-m.europe-west6-a.c.perfect-trilogy-317510.internal:33221/jobs/job?id=806",
+              "$$hashKey": "object:130144"
+            },
+            {
+              "jobUrl": "http://cluster-cd71-m.europe-west6-a.c.perfect-trilogy-317510.internal:33221/jobs/job?id=807",
+              "$$hashKey": "object:130145"
+            },
+            {
+              "jobUrl": "http://cluster-cd71-m.europe-west6-a.c.perfect-trilogy-317510.internal:33221/jobs/job?id=808",
+              "$$hashKey": "object:130146"
+            },
+            {
+              "jobUrl": "http://cluster-cd71-m.europe-west6-a.c.perfect-trilogy-317510.internal:33221/jobs/job?id=809",
+              "$$hashKey": "object:130147"
+            },
+            {
+              "jobUrl": "http://cluster-cd71-m.europe-west6-a.c.perfect-trilogy-317510.internal:33221/jobs/job?id=810",
+              "$$hashKey": "object:130148"
+            },
+            {
+              "jobUrl": "http://cluster-cd71-m.europe-west6-a.c.perfect-trilogy-317510.internal:33221/jobs/job?id=811",
+              "$$hashKey": "object:130149"
+            },
+            {
+              "jobUrl": "http://cluster-cd71-m.europe-west6-a.c.perfect-trilogy-317510.internal:33221/jobs/job?id=812",
+              "$$hashKey": "object:130150"
+            },
+            {
+              "jobUrl": "http://cluster-cd71-m.europe-west6-a.c.perfect-trilogy-317510.internal:33221/jobs/job?id=813",
+              "$$hashKey": "object:130151"
+            }
+          ],
+          "interpreterSettingId": "spark"
+        }
+      },
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1625834571929_1223861795",
+      "id": "paragraph_1625834571929_1223861795",
+      "dateCreated": "2021-07-09T12:42:51+0000",
+      "dateStarted": "2021-07-12T09:08:26+0000",
+      "dateFinished": "2021-07-12T09:08:38+0000",
+      "status": "FINISHED",
+      "$$hashKey": "object:126983"
+    },
+    {
+      "text": "%spark\n\nimport java.sql.Timestamp\n val maxLoadDate = spark.sql(\"\"\"SELECT MAX(start_date) \n                                    FROM audit_db.fund_audit_table\n                                    WHERE end_date IS NOT NULL\"\"\").collect()(0)(0).toString",
+      "user": "anonymous",
+      "dateUpdated": "2021-07-11T20:05:49+0000",
+      "config": {
+        "colWidth": 12,
+        "fontSize": 9,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "scala",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "editorMode": "ace/mode/scala"
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "import java.sql.Timestamp\n\u001b[1m\u001b[34mmaxLoadDate\u001b[0m: \u001b[1m\u001b[32mString\u001b[0m = 2021-07-11 17:04:40.0\n"
+          }
+        ]
+      },
+      "apps": [],
+      "runtimeInfos": {
+        "jobUrl": {
+          "propertyName": "jobUrl",
+          "label": "SPARK JOB",
+          "tooltip": "View in Spark web UI",
+          "group": "spark",
+          "values": [
+            {
+              "jobUrl": "http://cluster-cd71-m.europe-west6-a.c.perfect-trilogy-317510.internal:33221/jobs/job?id=368",
+              "$$hashKey": "object:127858"
+            }
+          ],
+          "interpreterSettingId": "spark"
+        }
+      },
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1626033795680_371607992",
+      "id": "paragraph_1626033795680_371607992",
+      "dateCreated": "2021-07-11T20:03:15+0000",
+      "dateStarted": "2021-07-11T20:05:50+0000",
+      "dateFinished": "2021-07-11T20:05:50+0000",
+      "status": "FINISHED",
+      "$$hashKey": "object:126984"
+    },
+    {
+      "text": "%spark\n\n val maxLoadDate = spark.sql(\"\"\"SELECT MAX(start_date) \n                                    FROM audit_db.fund_audit_table\n                                    WHERE end_date IS NOT NULL\"\"\").collect()\nval parsedMaxLoadDate = maxLoadDate(0)(0).toString\nspark.sql(s\"\"\"WITH end_date_cte AS (\n                SELECT DISTINCT start_load_date\n                FROM audit_db.stg_audit_table\n                WHERE end_load_date IS NOT NULL\n            ),\n            market_year_pairs_cte AS \n            (\n                SELECT DISTINCT market,YEAR(`time`) AS `year`\n                FROM stg_fund_db.stg_fund_table\n                WHERE load_date IN (SELECT * FROM end_date_cte) AND load_date > '$parsedMaxLoadDate'\n            ),\n            new_data_cte AS\n                 (\n                     SELECT `time`, `open`, `close`,stg.market\n                     FROM stg_fund_db.stg_fund_table AS stg\n                     INNER JOIN market_year_pairs_cte as myp\n                     ON YEAR(stg.`time`) = myp.`year` AND stg.market = myp.market\n                     WHERE load_date IN (SELECT * FROM end_date_cte)\n                 ),\n                 \n             open_cte AS\n                 (\n                    \n                              SELECT YEAR(`time`) as `year`, MONTH(`time`) as `month`, `time`, `open`, `close`, market\n                              FROM new_data_cte\n                              WHERE `time` IN\n                                    (\n                                        SELECT MIN(`time`)\n                                        FROM new_data_cte\n                                        GROUP BY market,YEAR(`time`), MONTH(`time`)\n                                    )\n                ),\n            close_cte As (\n                          \n                              SELECT YEAR(`time`) as `year`, MONTH(`time`) as `month`, `time`, `open`, `close`, market\n                              FROM new_data_cte\n                              WHERE `time` IN\n                                    (\n                                        SELECT MAX(`time`)\n                                        FROM new_data_cte\n                                        GROUP BY market,YEAR(`time`), MONTH(`time`)\n                                    )\n                          \n                 ),\n            open_close_cte AS\n            (\n                SELECT open_cte.`year`,\n                            open_cte.`month`,\n                            open_cte.`time`,\n                            open_cte.`open`,\n                            close_cte.`close`,\n                            open_cte.market\n                FROM open_cte\n                INNER JOIN close_cte\n                ON open_cte.`year` = close_cte.`year` AND open_cte.`month` = close_cte.`month`\n            )\n             SELECT * FROM open_close_cte\n        \"\"\").show()",
+      "user": "anonymous",
+      "dateUpdated": "2021-07-12T09:02:24+0000",
+      "config": {
+        "colWidth": 12,
+        "fontSize": 9,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "scala",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "editorMode": "ace/mode/scala"
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "+----+-----+-------------------+--------+--------+------+\n|year|month|               time|    open|   close|market|\n+----+-----+-------------------+--------+--------+------+\n|2012|   10|2012-10-15 19:50:10|1438.170|1437.600|XAUUSD|\n|2012|    8|2012-08-16 15:15:20|1409.750|1409.640|XAUUSD|\n|2013|    2|2013-02-08 18:47:40|1667.391|1667.767|XAUUSD|\n|2012|   12|2012-12-25 05:32:10|1426.660|1426.190|XAUUSD|\n|2013|   10|2013-10-08 04:40:20|1676.616|1676.616|XAUUSD|\n|2013|   12|2013-12-10 13:15:40|1807.414|1848.391|XAUUSD|\n|2013|    5|2013-05-22 08:40:40|1668.400|1668.400|XAUUSD|\n|2012|    1|2012-01-16 00:00:00|1291.400|1314.100|XAUUSD|\n|2012|    2|2012-02-22 09:47:40|1754.304|1754.722|XAUUSD|\n|2013|    1|2013-01-14 01:06:20|1472.050|1472.050|XAUUSD|\n|2013|    8|2013-08-14 05:51:30|1692.122|1691.822|XAUUSD|\n+----+-----+-------------------+--------+--------+------+\n\n\u001b[1m\u001b[34mmaxLoadDate\u001b[0m: \u001b[1m\u001b[32mArray[org.apache.spark.sql.Row]\u001b[0m = Array([2021-07-12 08:28:25.0])\n\u001b[1m\u001b[34mparsedMaxLoadDate\u001b[0m: \u001b[1m\u001b[32mString\u001b[0m = 2021-07-12 08:28:25.0\n"
+          }
+        ]
+      },
+      "apps": [],
+      "runtimeInfos": {
+        "jobUrl": {
+          "propertyName": "jobUrl",
+          "label": "SPARK JOB",
+          "tooltip": "View in Spark web UI",
+          "group": "spark",
+          "values": [
+            {
+              "jobUrl": "http://cluster-cd71-m.europe-west6-a.c.perfect-trilogy-317510.internal:33221/jobs/job?id=796",
+              "$$hashKey": "object:129613"
+            },
+            {
+              "jobUrl": "http://cluster-cd71-m.europe-west6-a.c.perfect-trilogy-317510.internal:33221/jobs/job?id=797",
+              "$$hashKey": "object:129614"
+            },
+            {
+              "jobUrl": "http://cluster-cd71-m.europe-west6-a.c.perfect-trilogy-317510.internal:33221/jobs/job?id=798",
+              "$$hashKey": "object:129615"
+            },
+            {
+              "jobUrl": "http://cluster-cd71-m.europe-west6-a.c.perfect-trilogy-317510.internal:33221/jobs/job?id=799",
+              "$$hashKey": "object:129616"
+            },
+            {
+              "jobUrl": "http://cluster-cd71-m.europe-west6-a.c.perfect-trilogy-317510.internal:33221/jobs/job?id=800",
+              "$$hashKey": "object:129617"
+            },
+            {
+              "jobUrl": "http://cluster-cd71-m.europe-west6-a.c.perfect-trilogy-317510.internal:33221/jobs/job?id=801",
+              "$$hashKey": "object:129618"
+            },
+            {
+              "jobUrl": "http://cluster-cd71-m.europe-west6-a.c.perfect-trilogy-317510.internal:33221/jobs/job?id=802",
+              "$$hashKey": "object:129619"
+            },
+            {
+              "jobUrl": "http://cluster-cd71-m.europe-west6-a.c.perfect-trilogy-317510.internal:33221/jobs/job?id=803",
+              "$$hashKey": "object:129620"
+            }
+          ],
+          "interpreterSettingId": "spark"
+        }
+      },
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1625834794152_1069263546",
+      "id": "paragraph_1625834794152_1069263546",
+      "dateCreated": "2021-07-09T12:46:34+0000",
+      "dateStarted": "2021-07-12T09:02:24+0000",
+      "dateFinished": "2021-07-12T09:02:32+0000",
+      "status": "FINISHED",
+      "$$hashKey": "object:126985"
+    },
+    {
+      "text": "%spark\n\nspark.sql(\"SELECT * FROM stg_fund_db.stg_fund_table\").show()",
+      "user": "anonymous",
+      "dateUpdated": "2021-07-12T08:29:23+0000",
+      "config": {
+        "colWidth": 12,
+        "fontSize": 9,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "scala",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "editorMode": "ace/mode/scala"
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "+-------------------+--------+--------+------+-------------------+\n|               time|    open|   close|market|          load_date|\n+-------------------+--------+--------+------+-------------------+\n|2012-01-16 00:00:00|1291.400|1291.400|XAUUSD|2021-07-12 08:27:34|\n|2012-01-16 00:00:10|1291.400|1291.400|XAUUSD|2021-07-12 08:27:34|\n|2012-01-16 00:00:20|1291.600|1291.400|XAUUSD|2021-07-12 08:27:34|\n|2012-01-16 00:00:30|1291.500|1291.400|XAUUSD|2021-07-12 08:27:34|\n|2012-01-16 00:00:40|1291.100|1291.100|XAUUSD|2021-07-12 08:27:34|\n|2012-01-16 00:00:50|1291.400|1291.100|XAUUSD|2021-07-12 08:27:34|\n|2012-01-16 00:01:00|1291.100|1291.100|XAUUSD|2021-07-12 08:27:34|\n|2012-01-16 00:01:10|1290.900|1290.900|XAUUSD|2021-07-12 08:27:34|\n|2012-01-16 00:01:20|1291.100|1291.100|XAUUSD|2021-07-12 08:27:34|\n|2012-01-16 00:01:30|1290.900|1290.900|XAUUSD|2021-07-12 08:27:34|\n|2012-01-16 00:01:40|1290.900|1290.900|XAUUSD|2021-07-12 08:27:34|\n|2012-01-16 00:01:50|1290.600|1290.600|XAUUSD|2021-07-12 08:27:34|\n|2012-01-16 00:02:00|1289.600|1289.900|XAUUSD|2021-07-12 08:27:34|\n|2012-01-16 00:02:10|1290.000|1290.100|XAUUSD|2021-07-12 08:27:34|\n|2012-01-16 00:02:20|1290.400|1290.100|XAUUSD|2021-07-12 08:27:34|\n|2012-01-17 00:00:00|1296.100|1296.100|XAUUSD|2021-07-12 08:27:34|\n|2012-01-17 00:00:10|1296.100|1296.100|XAUUSD|2021-07-12 08:27:34|\n|2012-01-17 00:00:20|1296.100|1296.100|XAUUSD|2021-07-12 08:27:34|\n|2012-01-17 00:00:30|1296.100|1296.100|XAUUSD|2021-07-12 08:27:34|\n|2012-01-17 00:00:40|1296.100|1296.100|XAUUSD|2021-07-12 08:27:34|\n+-------------------+--------+--------+------+-------------------+\nonly showing top 20 rows\n\n"
+          }
+        ]
+      },
+      "apps": [],
+      "runtimeInfos": {
+        "jobUrl": {
+          "propertyName": "jobUrl",
+          "label": "SPARK JOB",
+          "tooltip": "View in Spark web UI",
+          "group": "spark",
+          "values": [
+            {
+              "jobUrl": "http://cluster-cd71-m.europe-west6-a.c.perfect-trilogy-317510.internal:33221/jobs/job?id=682",
+              "$$hashKey": "object:127907"
+            }
+          ],
+          "interpreterSettingId": "spark"
+        }
+      },
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1626022019636_815105882",
+      "id": "paragraph_1626022019636_815105882",
+      "dateCreated": "2021-07-11T16:46:59+0000",
+      "dateStarted": "2021-07-12T08:29:23+0000",
+      "dateFinished": "2021-07-12T08:29:23+0000",
+      "status": "FINISHED",
+      "$$hashKey": "object:126986"
+    },
+    {
+      "text": "%spark\n\nspark.sql(\"SELECT * FROM audit_db.stg_audit_table\").show()",
+      "user": "anonymous",
+      "dateUpdated": "2021-07-12T07:01:30+0000",
+      "config": {
+        "colWidth": 12,
+        "fontSize": 9,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "scala",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "editorMode": "ace/mode/scala"
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "+-------------------+-------------------+--------------------+----------------------+\n|    start_load_date|      end_load_date|                task|count_of_inserted_rows|\n+-------------------+-------------------+--------------------+----------------------+\n|2021-07-11 20:40:25|               null|load data from so...|                     0|\n|2021-07-11 20:40:57|2021-07-11 20:40:58|load data from so...|                     0|\n|2021-07-12 06:43:09|2021-07-12 06:43:11|load data from so...|                  1445|\n|2021-07-12 06:09:51|2021-07-12 06:09:53|load data from so...|                  2890|\n|2021-07-09 12:16:57|               null|load data from so...|                     0|\n|2021-07-12 06:14:11|2021-07-12 06:14:12|load data from so...|                  1445|\n|2021-07-11 20:35:44|               null|load data from so...|                     0|\n|2021-07-09 12:17:20|2021-07-09 12:17:22|load data from so...|                  1445|\n|2021-07-12 06:26:12|2021-07-12 06:26:13|load data from so...|                     0|\n|2021-07-12 06:49:45|2021-07-12 06:49:46|load data from so...|                     0|\n+-------------------+-------------------+--------------------+----------------------+\n\n"
+          }
+        ]
+      },
+      "apps": [],
+      "runtimeInfos": {
+        "jobUrl": {
+          "propertyName": "jobUrl",
+          "label": "SPARK JOB",
+          "tooltip": "View in Spark web UI",
+          "group": "spark",
+          "values": [
+            {
+              "jobUrl": "http://cluster-cd71-m.europe-west6-a.c.perfect-trilogy-317510.internal:33221/jobs/job?id=599",
+              "$$hashKey": "object:127924"
+            },
+            {
+              "jobUrl": "http://cluster-cd71-m.europe-west6-a.c.perfect-trilogy-317510.internal:33221/jobs/job?id=600",
+              "$$hashKey": "object:127925"
+            },
+            {
+              "jobUrl": "http://cluster-cd71-m.europe-west6-a.c.perfect-trilogy-317510.internal:33221/jobs/job?id=601",
+              "$$hashKey": "object:127926"
+            }
+          ],
+          "interpreterSettingId": "spark"
+        }
+      },
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1626073264736_1251835015",
+      "id": "paragraph_1626073264736_1251835015",
+      "dateCreated": "2021-07-12T07:01:04+0000",
+      "dateStarted": "2021-07-12T07:01:30+0000",
+      "dateFinished": "2021-07-12T07:01:31+0000",
+      "status": "FINISHED",
+      "$$hashKey": "object:126987"
+    },
+    {
+      "text": "%spark\n\nspark.sql(\"SELECT * FROM fund_db.monthly_table\").show()",
+      "user": "anonymous",
+      "dateUpdated": "2021-07-12T08:29:30+0000",
+      "config": {
+        "colWidth": 12,
+        "fontSize": 9,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "scala",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "editorMode": "ace/mode/scala"
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "+------+-----+-------+--------+-----+-----+--------+----+-------+--------+---------+--------+--------+--------+--------+----------------------+-------------------+\n|market| year|january|february|march|april|     may|june|   july|  august|september| october|november|december|   total|type_of_previous_value|        update_time|\n+------+-----+-------+--------+-----+-----+--------+----+-------+--------+---------+--------+--------+--------+--------+----------------------+-------------------+\n|XAUUSD| 2017|0.00000|    null| null| null|    null|null|9.54622|    null|     null| 3.57453|    null| 4.73077|17.85151|                 false|2021-07-12 08:28:25|\n|XAUUSD| 2017|0.00000|    null| null| null|    null|null|0.03243|    null|     null|-0.03247|    null| 0.00000|-0.00003|                  true|2021-07-12 08:28:25|\n|XAUUSD| 2012|1.75778|    null| null| null|    null|null|   null| 7.27038|     null| 1.98349|    null|-0.79368|10.21796|                 false|2021-07-12 08:28:25|\n|XAUUSD| 2016|0.00000|    null| null| null| 3.45790|null|   null|    null|     null|    null| 5.32602| 1.57136|10.35527|                 false|2021-07-12 08:28:25|\n|XAUUSD| 2013|0.00000|    null| null| null| 0.00000|null|   null|-0.01773|     null| 0.00000|    null| 2.26716| 2.24943|                  true|2021-07-12 08:28:25|\n|XAUUSD| 2018|0.00000|    null| null| null|-0.00736|null|   null|    null| -0.00003|    null|-0.01097| 0.00000|-0.01836|                  true|2021-07-12 08:28:25|\n|XAUUSD| 2018|0.00000|    null| null| null| 1.83949|null|   null|    null|  6.46679|    null|-5.86063|-6.76648|-4.32083|                 false|2021-07-12 08:28:25|\n|XAUUSD| 2013|0.00000|    null| null| null|13.33854|null|   null| 1.40386|     null|-0.89879|    null|10.24534|24.08895|                 false|2021-07-12 08:28:25|\n|XAUUSD| 2012|1.75778|    null| null| null|    null|null|   null|-0.00780|     null|-0.03963|    null|-0.03294| 1.67740|                  true|2021-07-12 08:28:25|\n|XAUUSD| 2015|0.00000|    null| null| null| 0.00000|null|   null|    null|     null| 0.00000|    null| 0.00000| 0.00000|                  true|2021-07-12 08:28:25|\n|XAUUSD| 2014|0.00000|    null| null| null| 0.01475|null|   null|    null| -0.00080|    null|    null|-0.10921|-0.09527|                  true|2021-07-12 08:28:25|\n|XAUUSD| 2014|0.00000|    null| null| null| 3.84217|null|   null|    null|  3.56965|    null|    null| 4.35073|11.76255|                 false|2021-07-12 08:28:25|\n|XAUUSD| 2016|0.00000|    null| null| null| 0.00621|null|   null|    null|     null|    null| 5.78112| 0.00000| 5.78733|                  true|2021-07-12 08:28:25|\n|XAUUSD|total|0.25111|    null| null| null| 0.00272|null|0.03243|-0.01277| -0.00042|-0.01803| 2.88508| 0.30357| 1.37150|                  true|2021-07-12 08:28:25|\n|XAUUSD|total|0.25111|    null| null| null| 5.08276|null|9.54622| 4.33712|  5.01822|-0.07462|-0.26731| 2.17198| 9.97132|                 false|2021-07-12 08:28:25|\n|XAUUSD| 2015|0.00000|    null| null| null| 2.93570|null|   null|    null|     null|-4.95769|    null| 1.86583|-0.15616|                 false|2021-07-12 08:28:25|\n+------+-----+-------+--------+-----+-----+--------+----+-------+--------+---------+--------+--------+--------+--------+----------------------+-------------------+\n\n"
+          }
+        ]
+      },
+      "apps": [],
+      "runtimeInfos": {
+        "jobUrl": {
+          "propertyName": "jobUrl",
+          "label": "SPARK JOB",
+          "tooltip": "View in Spark web UI",
+          "group": "spark",
+          "values": [
+            {
+              "jobUrl": "http://cluster-cd71-m.europe-west6-a.c.perfect-trilogy-317510.internal:33221/jobs/job?id=686",
+              "$$hashKey": "object:127947"
+            },
+            {
+              "jobUrl": "http://cluster-cd71-m.europe-west6-a.c.perfect-trilogy-317510.internal:33221/jobs/job?id=687",
+              "$$hashKey": "object:127948"
+            },
+            {
+              "jobUrl": "http://cluster-cd71-m.europe-west6-a.c.perfect-trilogy-317510.internal:33221/jobs/job?id=688",
+              "$$hashKey": "object:127949"
+            }
+          ],
+          "interpreterSettingId": "spark"
+        }
+      },
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1625875737868_1678422789",
+      "id": "paragraph_1625875737868_1678422789",
+      "dateCreated": "2021-07-10T00:08:57+0000",
+      "dateStarted": "2021-07-12T08:29:30+0000",
+      "dateFinished": "2021-07-12T08:29:31+0000",
+      "status": "FINISHED",
+      "$$hashKey": "object:126988"
+    },
+    {
+      "text": "%spark\n\nspark.sql(\"SELECT * FROM audit_db.fund_audit_table\").show()",
+      "user": "anonymous",
+      "dateUpdated": "2021-07-12T08:29:27+0000",
+      "config": {
+        "colWidth": 12,
+        "fontSize": 9,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "scala",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "editorMode": "ace/mode/scala"
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "+-------------------+-------------------+--------------------+\n|         start_date|           end_date|                task|\n+-------------------+-------------------+--------------------+\n|2021-07-12 06:43:45|2021-07-12 06:43:56|load data from st...|\n|2021-07-11 13:38:51|               null|load data from st...|\n|2021-07-11 13:45:43|               null|load data from st...|\n|2021-07-11 13:39:35|               null|load data from st...|\n|2021-07-11 16:41:18|2021-07-11 16:41:19|load data from st...|\n|2021-07-11 13:42:52|               null|load data from st...|\n|2021-07-11 17:04:40|2021-07-11 17:04:49|load data from st...|\n|2021-07-12 06:18:25|2021-07-12 06:18:35|load data from st...|\n|2021-07-11 13:42:00|               null|load data from st...|\n|2021-07-11 13:45:20|               null|load data from st...|\n|2021-07-11 16:42:15|2021-07-11 16:42:21|load data from st...|\n|2021-07-11 17:04:00|               null|load data from st...|\n|2021-07-11 13:39:09|               null|load data from st...|\n|2021-07-11 13:28:00|               null|load data from st...|\n|2021-07-11 13:49:17|               null|load data from st...|\n|2021-07-11 13:51:14|               null|load data from st...|\n|2021-07-12 08:28:25|2021-07-12 08:28:35|load data from st...|\n|2021-07-11 17:04:16|               null|load data from st...|\n|2021-07-11 13:46:18|               null|load data from st...|\n|2021-07-11 17:03:45|               null|load data from st...|\n+-------------------+-------------------+--------------------+\nonly showing top 20 rows\n\n"
+          }
+        ]
+      },
+      "apps": [],
+      "runtimeInfos": {
+        "jobUrl": {
+          "propertyName": "jobUrl",
+          "label": "SPARK JOB",
+          "tooltip": "View in Spark web UI",
+          "group": "spark",
+          "values": [
+            {
+              "jobUrl": "http://cluster-cd71-m.europe-west6-a.c.perfect-trilogy-317510.internal:33221/jobs/job?id=683",
+              "$$hashKey": "object:127970"
+            },
+            {
+              "jobUrl": "http://cluster-cd71-m.europe-west6-a.c.perfect-trilogy-317510.internal:33221/jobs/job?id=684",
+              "$$hashKey": "object:127971"
+            },
+            {
+              "jobUrl": "http://cluster-cd71-m.europe-west6-a.c.perfect-trilogy-317510.internal:33221/jobs/job?id=685",
+              "$$hashKey": "object:127972"
+            }
+          ],
+          "interpreterSettingId": "spark"
+        }
+      },
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1626010104030_1837943119",
+      "id": "paragraph_1626010104030_1837943119",
+      "dateCreated": "2021-07-11T13:28:24+0000",
+      "dateStarted": "2021-07-12T08:29:27+0000",
+      "dateFinished": "2021-07-12T08:29:28+0000",
+      "status": "FINISHED",
+      "$$hashKey": "object:126989"
+    },
+    {
+      "text": "%spark\n",
+      "user": "anonymous",
+      "dateUpdated": "2021-07-12T06:52:29+0000",
+      "config": {
+        "colWidth": 12,
+        "fontSize": 9,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "scala",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "editorMode": "ace/mode/scala"
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1626072749784_1825412278",
+      "id": "paragraph_1626072749784_1825412278",
+      "dateCreated": "2021-07-12T06:52:29+0000",
+      "status": "READY",
+      "$$hashKey": "object:126990"
+    }
+  ],
+  "name": "spark_dataframe",
+  "id": "2G9QDYQ95",
+  "defaultInterpreterGroup": "spark",
+  "version": "0.9.0-preview2",
+  "noteParams": {},
+  "noteForms": {},
+  "angularObjects": {},
+  "config": {
+    "isZeppelinNotebookCronEnable": false,
+    "looknfeel": "default",
+    "personalizedMode": "false"
+  },
+  "info": {},
+  "path": "/spark_dataframe"
+}

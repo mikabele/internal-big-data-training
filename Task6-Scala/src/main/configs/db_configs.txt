@@ -1,0 +1,4 @@
+USER=root
+PASSWORD=757020Key
+HOST=localhost
+PORT=3306

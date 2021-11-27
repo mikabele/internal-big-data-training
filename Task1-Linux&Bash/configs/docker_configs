@@ -1,0 +1,4 @@
+MYSQL_USER=test_user
+MYSQL_USER_PASSWORD=test
+MONGO_USER=test_user
+MONGO_USER_PASSWORD=test

@@ -1,0 +1,65 @@
+version: '2.4'
+
+services:
+#mysql server container
+  belevich_mysql:
+    image: mysql:8
+    restart: always
+    hostname: belevich_mysql
+    container_name: belevich_mysql
+    environment:
+      - MYSQL_ALLOW_EMPTY_PASSWORD=true
+    expose:
+      - 3306
+    ports:
+      - "3360:3306"
+    healthcheck:
+      test: "mysqladmin ping -h 127.0.0.1 -u root"
+      timeout: 10s
+      retries: 5
+#mongo server container
+  belevich_mongodb:
+    image: mongo:4.4
+    restart: always
+    hostname: belevich_mongodb
+    container_name: belevich_mongodb
+    expose:
+      - 27017
+    ports:
+      - "27071:27017"
+    healthcheck:
+      test: echo 'db.runCommand({serverStatus:1}).ok' | mongo admin --quiet
+      timeout: 10s
+      retries: 5
+#ubuntu container with mysql and mongo clients
+  belevich_ubuntu:
+    build:
+      context: .
+      dockerfile: Ubuntu/Dockerfile
+    container_name: belevich_ubuntu
+    links:
+      - belevich_mongodb
+      - belevich_mysql
+    depends_on:
+      belevich_mongodb:
+        condition: service_healthy
+      belevich_mysql:
+        condition: service_healthy
+    tty: true
+    command: /bin/bash
+#centos container with mysql and mongo clients
+  belevich_centos:
+    build:
+      context: .
+      dockerfile: CentOS/Dockerfile
+    container_name: belevich_centos
+    links:
+      - belevich_mongodb
+      - belevich_mysql
+    depends_on:
+      belevich_mongodb:
+        condition: service_healthy
+      belevich_mysql:
+        condition: service_healthy
+    tty: true
+    command: /bin/bash

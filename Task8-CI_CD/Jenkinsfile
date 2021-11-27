@@ -1,0 +1,76 @@
+#!groovy
+
+workDir = 'Task7-Snowflake'
+snowflakeCredsId = 'snowflake-usernamepassword'
+
+pipeline {
+    agent {
+        docker {
+            image 'mikabele/task8-jenkins:latest'
+            args '-u root:root'
+        }
+    }
+    environment {
+        SNOWFLAKE_ACCOUNT = 'hh88702.europe-west4.gcp'
+    }
+    stages {
+        stage('Precompile') {
+            steps {
+                script {
+                    checkout([
+                            $class           : 'GitSCM',
+                            branches         : [[name: '*/master']],
+                            userRemoteConfigs: [[credentialsId: 'bitbucket-userpassword',
+                                                 url          : 'https://Michael_Belevich@bitbucket.org/Michael_Belevich/internal-big-data-training.git']]
+                    ])
+                    dir(workDir + '/configs') {
+                        sh 'rm snowflake_configs.txt'
+                        withCredentials([usernamePassword(credentialsId: snowflakeCredsId,
+                                usernameVariable: 'SNOWSQL_USERNAME', passwordVariable: 'SNOWSQL_PWD')]) {
+                            sh 'echo "ACCOUNT=$SNOWFLAKE_ACCOUNT\nUSERNAME=$SNOWSQL_USERNAME\nSNOWSQL_PWD=$SNOWSQL_PWD" > snowflake_configs.txt'
+                        }
+                    }
+                }
+            }
+        }
+        stage('Build') {
+            steps {
+                script {
+                    dir(workDir) {
+                        //sh 'ls -la'
+                        withCredentials([usernamePassword(credentialsId: snowflakeCredsId,
+                                usernameVariable: 'SNOWSQL_USERNAME', passwordVariable: 'SNOWSQL_PWD')]) {
+                            //sh 'bash setup.sh -r'
+                            sh 'bash run.sh -o compile -r -d ../data/test'
+                        }
+                    }
+                }
+            }
+        }
+        stage('Test') {
+            steps {
+                script {
+                    dir(workDir) {
+                        //sh 'sbt test'
+                        withCredentials([usernamePassword(credentialsId: snowflakeCredsId,
+                                usernameVariable: 'SNOWSQL_USERNAME', passwordVariable: 'SNOWSQL_PWD')]) {
+                            sh 'bash run.sh -o run -r -d ../data/test -m XAUUSD -t full'
+                        }
+                        //sh 'echo "RUN TEST"'
+                    }
+                }
+            }
+        }
+        stage('Deploy') {
+            steps {
+                script {
+                    sh 'ssh-keygen -f ~/.ssh/id_rsa -N ""'
+                    sh 'gcloud auth activate-service-account test-account@perfect-trilogy-317510.iam.gserviceaccount.com --key-file=/gcloud_auth_key_file.json'
+                    dir(workDir) {
+                        sh 'gcloud compute scp --zone=europe-west6-a target/scala-2.11/*.jar deploy-server:~'
+                    }
+                }
+            }
+        }
+    }
+}
